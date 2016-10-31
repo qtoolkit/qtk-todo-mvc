@@ -1,4 +1,4 @@
-# 基于[qtk-particles-editor](https://github.com/qtoolkit/qtk-particles-editor)为[Proton](qtk-particles-editor)开发的粒子编辑器。
+# 用[QToolKit](https://github.com/qtoolkit/qtk)基于MVVM模式开发的TODO示例。
 
 编译准备：
 
@@ -24,4 +24,4 @@ node app.js
 open www/index.html
 ```
 
-在线演示：[qtk-proton-editor](https://qtoolkit.github.io/qtk-proton-editor/index.html)
+在线演示：[qtk-todo-mvc](https://qtoolkit.github.io/qtk-todo-mvc/index.html)
