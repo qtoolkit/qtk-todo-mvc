@@ -1,25 +1,25 @@
 import {Application} from "qtk";
 import {MainWindow} from "./views/main-window"
-import {TodoModal} from "./modals/todo-modal";
-import {TodoViewModal}  from "./view-modals/todo-view-modal";
+import {TodoModel} from "./models/todo-model";
+import {TodoViewModel}  from "./view-models/todo-view-model";
 
 var appThemeDataURL = "https://qtoolkit.github.io/qtk-todo-mvc/assets/theme/default/theme.json";
 var themeDataURL = "https://qtoolkit.github.io/demos/assets/theme/default/theme.json";
 
 export class TodoApp extends Application {
-	protected createViewModal() {
-		var modal = new TodoModal();
+	protected createViewModel() {
+		var model = new TodoModel();
 		
 		window.onunload = function() {
-			modal.save();
+			model.save();
 		}
 
-		return TodoViewModal.create(modal.load().data);
+		return TodoViewModel.create(model.load().data);
 	}
 
 	public onReady() {
-		var viewModal = this.createViewModal();
-		var mainWindow = MainWindow.create({app:this, viewModal:viewModal}).maximize();
+		var viewModel = this.createViewModel();
+		var mainWindow = MainWindow.create({app:this, viewModel:viewModel}).maximize();
 	}
 	
 	public static run() : TodoApp {

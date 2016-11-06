@@ -1,16 +1,16 @@
-import {TodoItem, ITodoModal} from "./itodo-modal";
+import {TodoItem, ITodoModel} from "./itodo-model";
 
-export class TodoModal {
+export class TodoModel {
 	public data : Array<TodoItem>;
 
-	public save() : ITodoModal {
+	public save() : ITodoModel {
 		var str = JSON.stringify(this.data);
 		localStorage.setItem("qtk-todos", str);
 
 		return this;
 	}
 
-	public load() : ITodoModal {
+	public load() : ITodoModel {
 		var str = localStorage.getItem("qtk-todos");
 		if(str) {
 			var items = JSON.parse(str);

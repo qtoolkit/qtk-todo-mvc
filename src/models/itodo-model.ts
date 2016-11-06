@@ -13,9 +13,9 @@ export class TodoItem {
 	}
 };
 
-export interface ITodoModal {
+export interface ITodoModel {
 	data : Array<TodoItem>;
-	save() : ITodoModal;
-	load() : ITodoModal;
+	save() : ITodoModel;
+	load() : ITodoModel;
 };
 

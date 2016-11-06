@@ -1,8 +1,8 @@
 import {DelegateValueConverter, DelegateFilter, DelegateComparator, ValidationResult} from "qtk";
-import {KeyEvent, Events, CollectionViewModal, DelegateCommand} from "qtk";
-import {TodoItem} from "../modals/itodo-modal";
+import {KeyEvent, Events, CollectionViewModel, DelegateCommand} from "qtk";
+import {TodoItem} from "../models/itodo-model";
 
-export class TodoViewModal extends CollectionViewModal {
+export class TodoViewModel extends CollectionViewModel {
 	protected _newContent : string;
 
 	constructor(data:Array<any>) {
@@ -64,7 +64,7 @@ export class TodoViewModal extends CollectionViewModal {
 			DelegateValueConverter.create(value => value + " items left", null));
 	}
 
-	public static create(data:Array<any>) : TodoViewModal {
-		return new TodoViewModal(data);
+	public static create(data:Array<any>) : TodoViewModel {
+		return new TodoViewModel(data);
 	}
 }

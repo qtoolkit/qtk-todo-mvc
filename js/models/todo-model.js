@@ -1,19 +1,19 @@
 "use strict";
-var itodo_modal_1 = require("./itodo-modal");
-var TodoModal = (function () {
-    function TodoModal() {
+var itodo_model_1 = require("./itodo-model");
+var TodoModel = (function () {
+    function TodoModel() {
     }
-    TodoModal.prototype.save = function () {
+    TodoModel.prototype.save = function () {
         var str = JSON.stringify(this.data);
         localStorage.setItem("qtk-todos", str);
         return this;
     };
-    TodoModal.prototype.load = function () {
+    TodoModel.prototype.load = function () {
         var str = localStorage.getItem("qtk-todos");
         if (str) {
             var items = JSON.parse(str);
             this.data = items.map(function (item) {
-                return itodo_modal_1.TodoItem.create(item.content, item.completed);
+                return itodo_model_1.TodoItem.create(item.content, item.completed);
             });
         }
         else {
@@ -21,8 +21,8 @@ var TodoModal = (function () {
         }
         return this;
     };
-    return TodoModal;
+    return TodoModel;
 }());
-exports.TodoModal = TodoModal;
+exports.TodoModel = TodoModel;
 ;
-//# sourceMappingURL=todo-modal.js.map
+//# sourceMappingURL=todo-model.js.map

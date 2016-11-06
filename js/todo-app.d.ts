@@ -1,7 +1,7 @@
 import { Application } from "qtk";
-import { TodoViewModal } from "./view-modals/todo-view-modal";
+import { TodoViewModel } from "./view-models/todo-view-model";
 export declare class TodoApp extends Application {
-    protected createViewModal(): TodoViewModal;
+    protected createViewModel(): TodoViewModel;
     onReady(): void;
     static run(): TodoApp;
 }

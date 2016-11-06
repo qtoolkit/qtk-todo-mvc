@@ -64,9 +64,9 @@ var app =
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var qtk_1 = __webpack_require__(2);
-	var main_window_1 = __webpack_require__(357);
-	var todo_modal_1 = __webpack_require__(359);
-	var todo_view_modal_1 = __webpack_require__(361);
+	var main_window_1 = __webpack_require__(358);
+	var todo_model_1 = __webpack_require__(360);
+	var todo_view_model_1 = __webpack_require__(362);
 	var appThemeDataURL = "https://qtoolkit.github.io/qtk-todo-mvc/assets/theme/default/theme.json";
 	var themeDataURL = "https://qtoolkit.github.io/demos/assets/theme/default/theme.json";
 	var TodoApp = (function (_super) {
@@ -74,16 +74,16 @@ var app =
 	    function TodoApp() {
 	        _super.apply(this, arguments);
 	    }
-	    TodoApp.prototype.createViewModal = function () {
-	        var modal = new todo_modal_1.TodoModal();
+	    TodoApp.prototype.createViewModel = function () {
+	        var model = new todo_model_1.TodoModel();
 	        window.onunload = function () {
-	            modal.save();
+	            model.save();
 	        };
-	        return todo_view_modal_1.TodoViewModal.create(modal.load().data);
+	        return todo_view_model_1.TodoViewModel.create(model.load().data);
 	    };
 	    TodoApp.prototype.onReady = function () {
-	        var viewModal = this.createViewModal();
-	        var mainWindow = main_window_1.MainWindow.create({ app: this, viewModal: viewModal }).maximize();
+	        var viewModel = this.createViewModel();
+	        var mainWindow = main_window_1.MainWindow.create({ app: this, viewModel: viewModel }).maximize();
 	    };
 	    TodoApp.run = function () {
 	        var app = new TodoApp("todomvc");
@@ -170,17 +170,18 @@ var app =
 	exports.TreeView = tree_view_1.TreeView;
 	var application_1 = __webpack_require__(123);
 	exports.Application = application_1.Application;
-	var movable_1 = __webpack_require__(164);
+	var movable_1 = __webpack_require__(165);
 	exports.Movable = movable_1.Movable;
 	var theme_manager_1 = __webpack_require__(124);
 	exports.ThemeManager = theme_manager_1.ThemeManager;
-	var draggable_1 = __webpack_require__(165);
+	var draggable_1 = __webpack_require__(166);
 	exports.Draggable = draggable_1.Draggable;
-	var droppable_1 = __webpack_require__(166);
+	var droppable_1 = __webpack_require__(167);
 	exports.Droppable = droppable_1.Droppable;
-	var resizable_1 = __webpack_require__(167);
+	var resizable_1 = __webpack_require__(168);
 	exports.Resizable = resizable_1.Resizable;
-	var menu_1 = __webpack_require__(168);
+	exports.ResizableOptions = resizable_1.ResizableOptions;
+	var menu_1 = __webpack_require__(169);
 	exports.Menu = menu_1.Menu;
 	exports.MenuItem = menu_1.MenuItem;
 	var radio_button_1 = __webpack_require__(108);
@@ -189,63 +190,63 @@ var app =
 	exports.TreeItemData = tree_item_data_1.TreeItemData;
 	var check_button_1 = __webpack_require__(109);
 	exports.CheckButton = check_button_1.CheckButton;
-	var window_normal_1 = __webpack_require__(169);
+	var window_normal_1 = __webpack_require__(170);
 	exports.WindowNormal = window_normal_1.WindowNormal;
 	var widget_factory_1 = __webpack_require__(25);
 	exports.WidgetFactory = widget_factory_1.WidgetFactory;
-	var menu_bar_1 = __webpack_require__(170);
+	var menu_bar_1 = __webpack_require__(171);
 	exports.MenuBar = menu_bar_1.MenuBar;
 	exports.MenuBarItem = menu_bar_1.MenuBarItem;
-	var color_tile_1 = __webpack_require__(141);
+	var color_tile_1 = __webpack_require__(142);
 	exports.ColorTile = color_tile_1.ColorTile;
 	exports.ColorLine = color_tile_1.ColorLine;
 	var list_item_1 = __webpack_require__(116);
 	exports.ListItem = list_item_1.ListItem;
 	exports.ListItemStyle = list_item_1.ListItemStyle;
-	var chart_view_1 = __webpack_require__(171);
+	var chart_view_1 = __webpack_require__(172);
 	exports.ChartView = chart_view_1.ChartView;
 	var graphics_1 = __webpack_require__(27);
 	exports.RoundType = graphics_1.RoundType;
 	exports.Graphics = graphics_1.Graphics;
-	var accordion_1 = __webpack_require__(324);
+	var accordion_1 = __webpack_require__(325);
 	exports.Accordion = accordion_1.Accordion;
 	var service_locator_1 = __webpack_require__(126);
 	exports.ServiceLocator = service_locator_1.ServiceLocator;
-	var ruler_1 = __webpack_require__(327);
+	var ruler_1 = __webpack_require__(328);
 	exports.VRuler = ruler_1.VRuler;
 	exports.HRuler = ruler_1.HRuler;
-	var title_content_1 = __webpack_require__(325);
+	var title_content_1 = __webpack_require__(326);
 	exports.TitleContent = title_content_1.TitleContent;
-	var title_label_1 = __webpack_require__(143);
+	var title_label_1 = __webpack_require__(144);
 	exports.TitleLabel = title_label_1.TitleLabel;
-	var title_range_1 = __webpack_require__(145);
+	var title_range_1 = __webpack_require__(146);
 	exports.TitleRange = title_range_1.TitleRange;
-	var title_vector_1 = __webpack_require__(147);
+	var title_vector_1 = __webpack_require__(148);
 	exports.TitleVector = title_vector_1.TitleVector;
-	var title_edit_1 = __webpack_require__(142);
+	var title_edit_1 = __webpack_require__(143);
 	exports.TitleEdit = title_edit_1.TitleEdit;
-	var title_slider_1 = __webpack_require__(149);
+	var title_slider_1 = __webpack_require__(150);
 	exports.TitleSlider = title_slider_1.TitleSlider;
-	var property_page_1 = __webpack_require__(137);
+	var property_page_1 = __webpack_require__(138);
 	exports.PropertyPage = property_page_1.PropertyPage;
-	var property_dialog_1 = __webpack_require__(136);
+	var property_dialog_1 = __webpack_require__(137);
 	exports.PropertyDialog = property_dialog_1.PropertyDialog;
-	var range_edit_1 = __webpack_require__(146);
+	var range_edit_1 = __webpack_require__(147);
 	exports.RangeEdit = range_edit_1.RangeEdit;
-	var vector_edit_1 = __webpack_require__(148);
+	var vector_edit_1 = __webpack_require__(149);
 	exports.VectorEdit = vector_edit_1.VectorEdit;
-	var choosable_edit_1 = __webpack_require__(152);
+	var choosable_edit_1 = __webpack_require__(153);
 	exports.ChoosableEdit = choosable_edit_1.ChoosableEdit;
-	var title_text_area_1 = __webpack_require__(150);
+	var title_text_area_1 = __webpack_require__(151);
 	exports.TitleTextArea = title_text_area_1.TitleTextArea;
-	var property_sheets_1 = __webpack_require__(328);
+	var property_sheets_1 = __webpack_require__(329);
 	exports.PropertySheets = property_sheets_1.PropertySheets;
 	var progress_bar_1 = __webpack_require__(98);
 	exports.ProgressBarType = progress_bar_1.ProgressBarType;
 	exports.ProgressBar = progress_bar_1.ProgressBar;
-	var title_choosable_edit_1 = __webpack_require__(151);
+	var title_choosable_edit_1 = __webpack_require__(152);
 	exports.TitleChoosableEdit = title_choosable_edit_1.TitleChoosableEdit;
-	var dock_layouter_1 = __webpack_require__(132);
+	var dock_layouter_1 = __webpack_require__(133);
 	exports.DockLayouter = dock_layouter_1.DockLayouter;
 	exports.DockLayouterParam = dock_layouter_1.DockLayouterParam;
 	var grid_layouter_1 = __webpack_require__(119);
@@ -257,7 +258,7 @@ var app =
 	var simple_layouter_1 = __webpack_require__(117);
 	exports.SimpleLayouter = simple_layouter_1.SimpleLayouter;
 	exports.SimpleLayouterParam = simple_layouter_1.SimpleLayouterParam;
-	var linear_layouter_1 = __webpack_require__(133);
+	var linear_layouter_1 = __webpack_require__(134);
 	exports.LinearLayouter = linear_layouter_1.LinearLayouter;
 	exports.LinearLayouterParam = linear_layouter_1.LinearLayouterParam;
 	var widget_1 = __webpack_require__(21);
@@ -272,10 +273,10 @@ var app =
 	exports.AlignV = consts_1.AlignV;
 	exports.Orientation = consts_1.Orientation;
 	exports.Services = consts_1.Services;
-	var title_combo_box_1 = __webpack_require__(154);
+	var title_combo_box_1 = __webpack_require__(155);
 	exports.TitleComboBox = title_combo_box_1.TitleComboBox;
 	exports.TitleComboBoxEditable = title_combo_box_1.TitleComboBoxEditable;
-	var message_box_1 = __webpack_require__(131);
+	var message_box_1 = __webpack_require__(132);
 	exports.ButtonOption = message_box_1.ButtonOption;
 	exports.ButtonsOptions = message_box_1.ButtonsOptions;
 	exports.TitleOptions = message_box_1.TitleOptions;
@@ -286,39 +287,41 @@ var app =
 	exports.ScrollView = scroll_view_1.ScrollView;
 	var device_info_1 = __webpack_require__(125);
 	exports.DeviceInfo = device_info_1.DeviceInfo;
-	var view_modal_1 = __webpack_require__(155);
-	exports.ViewModal = view_modal_1.ViewModal;
+	var view_model_1 = __webpack_require__(156);
+	exports.ViewModel = view_model_1.ViewModel;
 	var recyclable_creator_1 = __webpack_require__(85);
 	exports.RecyclableCreator = recyclable_creator_1.RecyclableCreator;
-	var delegate_command_1 = __webpack_require__(329);
+	var delegate_command_1 = __webpack_require__(330);
 	exports.DelegateCommand = delegate_command_1.DelegateCommand;
-	var collection_view_modal_1 = __webpack_require__(330);
-	exports.CollectionViewModal = collection_view_modal_1.CollectionViewModal;
-	var delegate_value_converter_1 = __webpack_require__(331);
+	var collection_view_model_1 = __webpack_require__(331);
+	exports.CollectionViewModel = collection_view_model_1.CollectionViewModel;
+	var delegate_value_converter_1 = __webpack_require__(332);
 	exports.DelegateValueConverter = delegate_value_converter_1.DelegateValueConverter;
 	var widget_recyclable_creator_1 = __webpack_require__(84);
 	exports.WidgetRecyclableCreator = widget_recyclable_creator_1.WidgetRecyclableCreator;
-	var ivalidation_rule_1 = __webpack_require__(159);
+	var ivalidation_rule_1 = __webpack_require__(160);
 	exports.ValidationResult = ivalidation_rule_1.ValidationResult;
-	var delegate_validation_rule_1 = __webpack_require__(332);
+	var delegate_validation_rule_1 = __webpack_require__(333);
 	exports.DelegateValidationRule = delegate_validation_rule_1.DelegateValidationRule;
 	var binding_rule_1 = __webpack_require__(81);
 	exports.BindingRule = binding_rule_1.BindingRule;
 	exports.BindingDataSource = binding_rule_1.BindingDataSource;
 	exports.BindingCommandSource = binding_rule_1.BindingCommandSource;
 	exports.BindingRuleItem = binding_rule_1.BindingRuleItem;
-	var props_desc_1 = __webpack_require__(153);
+	var iview_model_1 = __webpack_require__(83);
+	exports.BindingMode = iview_model_1.BindingMode;
+	var props_desc_1 = __webpack_require__(154);
 	exports.PagePropsDesc = props_desc_1.PagePropsDesc;
 	exports.PropsDesc = props_desc_1.PropsDesc;
 	exports.PropDesc = props_desc_1.PropDesc;
 	exports.NumberPropDesc = props_desc_1.NumberPropDesc;
 	exports.SliderPropDesc = props_desc_1.SliderPropDesc;
-	var props_desc_2 = __webpack_require__(153);
+	var props_desc_2 = __webpack_require__(154);
 	exports.TextPropDesc = props_desc_2.TextPropDesc;
 	exports.ReadonlyTextPropDesc = props_desc_2.ReadonlyTextPropDesc;
 	exports.OptionsPropDesc = props_desc_2.OptionsPropDesc;
 	exports.RangePropDesc = props_desc_2.RangePropDesc;
-	var props_desc_3 = __webpack_require__(153);
+	var props_desc_3 = __webpack_require__(154);
 	exports.Vector2PropDesc = props_desc_3.Vector2PropDesc;
 	exports.Vector3PropDesc = props_desc_3.Vector3PropDesc;
 	exports.LinePropDesc = props_desc_3.LinePropDesc;
@@ -331,59 +334,59 @@ var app =
 	exports.Assets = Assets;
 	var inputEventAdapter = __webpack_require__(17);
 	exports.inputEventAdapter = inputEventAdapter;
-	var toast_info_1 = __webpack_require__(333);
+	var toast_info_1 = __webpack_require__(334);
 	exports.ToastInfo = toast_info_1.ToastInfo;
-	var input_info_1 = __webpack_require__(334);
+	var input_info_1 = __webpack_require__(335);
 	exports.InputInfo = input_info_1.InputInfo;
-	var props_info_1 = __webpack_require__(335);
+	var props_info_1 = __webpack_require__(336);
 	exports.PropsInfo = props_info_1.PropsInfo;
-	var choice_info_1 = __webpack_require__(336);
+	var choice_info_1 = __webpack_require__(337);
 	exports.ChoiceInfo = choice_info_1.ChoiceInfo;
-	var progress_info_1 = __webpack_require__(337);
+	var progress_info_1 = __webpack_require__(338);
 	exports.ProgressInfo = progress_info_1.ProgressInfo;
-	var confirmation_info_1 = __webpack_require__(338);
+	var confirmation_info_1 = __webpack_require__(339);
 	exports.ConfirmationInfo = confirmation_info_1.ConfirmationInfo;
-	var notification_info_1 = __webpack_require__(339);
+	var notification_info_1 = __webpack_require__(340);
 	exports.NotificationInfo = notification_info_1.NotificationInfo;
-	var interaction_types_1 = __webpack_require__(128);
+	var interaction_types_1 = __webpack_require__(129);
 	exports.InteractionTypes = interaction_types_1.InteractionTypes;
-	var interaction_request_1 = __webpack_require__(127);
+	var interaction_request_1 = __webpack_require__(128);
 	exports.InteractionRequest = interaction_request_1.InteractionRequest;
-	var interaction_service_1 = __webpack_require__(129);
+	var interaction_service_1 = __webpack_require__(130);
 	exports.InteractionService = interaction_service_1.InteractionService;
-	var items_storage_1 = __webpack_require__(340);
+	var items_storage_1 = __webpack_require__(341);
 	exports.ItemsStorage = items_storage_1.ItemsStorage;
-	var table_row_1 = __webpack_require__(341);
+	var table_row_1 = __webpack_require__(342);
 	exports.TableRow = table_row_1.TableRow;
-	var table_client_1 = __webpack_require__(342);
+	var table_client_1 = __webpack_require__(343);
 	exports.TableClient = table_client_1.TableClient;
-	var table_index_1 = __webpack_require__(344);
+	var table_index_1 = __webpack_require__(345);
 	exports.TableIndex = table_index_1.TableIndex;
-	var table_header_1 = __webpack_require__(346);
+	var table_header_1 = __webpack_require__(347);
 	exports.TableHeader = table_header_1.TableHeader;
-	var table_1 = __webpack_require__(347);
+	var table_1 = __webpack_require__(348);
 	exports.Table = table_1.Table;
 	exports.TableColInfo = table_1.TableColInfo;
-	var table_index_item_1 = __webpack_require__(348);
+	var table_index_item_1 = __webpack_require__(349);
 	exports.TableIndexItem = table_index_item_1.TableIndexItem;
-	var table_header_item_1 = __webpack_require__(349);
+	var table_header_item_1 = __webpack_require__(350);
 	exports.TableHeaderItem = table_header_item_1.TableHeaderItem;
-	var delegate_filter_1 = __webpack_require__(350);
+	var delegate_filter_1 = __webpack_require__(351);
 	exports.DelegateFilter = delegate_filter_1.DelegateFilter;
-	var delegate_comparator_1 = __webpack_require__(351);
+	var delegate_comparator_1 = __webpack_require__(352);
 	exports.DelegateComparator = delegate_comparator_1.DelegateComparator;
-	var comparators_1 = __webpack_require__(352);
+	var comparators_1 = __webpack_require__(353);
 	exports.NumberComparator = comparators_1.NumberComparator;
 	exports.StringComparator = comparators_1.StringComparator;
 	exports.RevertComparator = comparators_1.RevertComparator;
 	exports.ObjectPropComparator = comparators_1.ObjectPropComparator;
-	var range_fixer_1 = __webpack_require__(353);
+	var range_fixer_1 = __webpack_require__(354);
 	exports.RangeFixer = range_fixer_1.RangeFixer;
-	var number_fixer_1 = __webpack_require__(354);
+	var number_fixer_1 = __webpack_require__(355);
 	exports.NumberFixer = number_fixer_1.NumberFixer;
-	var vector2_fixer_1 = __webpack_require__(355);
+	var vector2_fixer_1 = __webpack_require__(356);
 	exports.Vector2Fixer = vector2_fixer_1.Vector2Fixer;
-	var vector3_fixer_1 = __webpack_require__(356);
+	var vector3_fixer_1 = __webpack_require__(357);
 	exports.Vector3Fixer = vector3_fixer_1.Vector3Fixer;
 
 
@@ -1453,12 +1456,14 @@ var app =
 	exports.MOVE_BEGIN = "move-begin";
 	exports.MOVE_CANCEL = "move-cancel";
 	exports.CHOOSE = "choose";
-	exports.OPEN = "open";
+	exports.WINDOW_OPEN = "window-open";
+	exports.WINDOW_CLOSE = "window-close";
+	exports.WINDOW_CREATE = "window-create";
+	exports.WINDOW_CREATED = "window-created";
 	exports.INIT = "init";
 	exports.FOCUS = "focus";
 	exports.BLUR = "blur";
 	exports.DEINIT = "deinit";
-	exports.CLOSE = "close";
 	exports.RESIZE = "resize";
 	exports.RESIZING = "resizing";
 	exports.RESIZE_END = "resize-end";
@@ -1563,7 +1568,7 @@ var app =
 	exports.AnyEvent = AnyEvent;
 	;
 	/**
-	 * View Modal请求显示指定的视图或跳转到指定的视图。
+	 * View Model请求显示指定的视图或跳转到指定的视图。
 	 */
 	var InteractionRequestEvent = (function (_super) {
 	    __extends(InteractionRequestEvent, _super);
@@ -1860,6 +1865,23 @@ var app =
 	    return ScrollEvent;
 	}(Event));
 	exports.ScrollEvent = ScrollEvent;
+	;
+	var WindowEvent = (function (_super) {
+	    __extends(WindowEvent, _super);
+	    function WindowEvent() {
+	        _super.apply(this, arguments);
+	    }
+	    WindowEvent.prototype.reset = function (type, widget) {
+	        _super.prototype.init.call(this, type);
+	        this.widget = widget;
+	        return this;
+	    };
+	    WindowEvent.create = function () {
+	        return new WindowEvent();
+	    };
+	    return WindowEvent;
+	}(Event));
+	exports.WindowEvent = WindowEvent;
 	;
 	var ProgressEvent = (function (_super) {
 	    __extends(ProgressEvent, _super);
@@ -3939,6 +3961,7 @@ var app =
 	var pointerDownX = 0;
 	var pointerDownY = 0;
 	var pointerDownTime = 0;
+	var pointerMoved = false;
 	var globalInputEmitter = new emitter_1.Emitter();
 	function dispatchEvent(target, type, detail) {
 	    var realTarget = target;
@@ -3954,13 +3977,13 @@ var app =
 	    globalInputEmitter.dispatchEvent(event);
 	    realTarget.dispatchEvent(event);
 	}
-	function getPointerDetail(e) {
+	function getPointerDetail(e, timeStamp) {
 	    if (e) {
 	        var id = e.identifier || 0;
 	        var x = Math.max(e.pageX || 0, e.x || e.clientX);
 	        var y = Math.max(e.pageY || 0, e.y || e.clientY);
 	        lastDetail = event_detail_1.PointerEventDetail.create(id, x, y, altKey, ctrlKey, shiftKey, commandKey);
-	        lastDetail.timeStamp = e.timeStamp;
+	        lastDetail.timeStamp = e.timeStamp || timeStamp;
 	    }
 	    return lastDetail;
 	}
@@ -3970,18 +3993,18 @@ var app =
 	        pointerDownX = detail.x;
 	        pointerDownY = detail.y;
 	        pointerDownTime = Date.now();
+	        pointerMoved = false;
 	    }
 	    else if (type === Events.POINTER_UP) {
 	        detail.setPointerDown(pointerDown, pointerDownX, pointerDownY, pointerDownTime);
-	        var dx = Math.abs(detail.x - pointerDownX);
-	        var dy = Math.abs(detail.y - pointerDownY);
-	        var isClick = dx < 5 && dy < 5;
 	        pointerDown = false;
-	        if (isClick) {
+	        pointerMoved = false;
+	        if (!pointerMoved) {
 	            dispatchEvent(target, Events.CLICK, detail);
 	        }
 	    }
 	    else {
+	        pointerMoved = true;
 	        detail.setPointerDown(pointerDown, pointerDownX, pointerDownY, pointerDownTime);
 	    }
 	    dispatchEvent(target, type, detail);
@@ -4006,26 +4029,31 @@ var app =
 	    dispatchPointerEvent(Events.POINTER_OVER, evt.target, getPointerDetail(evt));
 	}
 	function getTouchPoints(evt) {
-	    var touches = evt.touches || evt.changedTouches || evt.touchList;
-	    var ret = touches.map(function (touch) {
-	        return getPointerDetail(touch);
-	    });
+	    var touches = evt.touches || evt.changedTouches || evt.touchList || evt.targetTouches;
+	    var n = touches.length;
+	    var ret = [];
+	    for (var i = 0; i < n; i++) {
+	        ret.push(getPointerDetail(touches[i]));
+	    }
 	    if (ret.length < 1) {
 	        ret.push(getPointerDetail(null));
 	    }
 	    return ret;
 	}
 	function onTouchStart(evt) {
-	    var detail = getPointerDetail(getTouchPoints(evt)[0]);
+	    var detail = getPointerDetail(getTouchPoints(evt)[0], evt.timeStamp);
 	    dispatchPointerEvent(Events.POINTER_DOWN, evt.target, detail);
+	    evt.preventDefault();
 	}
 	function onTouchMove(evt) {
-	    var detail = getPointerDetail(getTouchPoints(evt)[0]);
+	    var detail = getPointerDetail(getTouchPoints(evt)[0], evt.timeStamp);
 	    dispatchPointerEvent(Events.POINTER_MOVE, evt.target, detail);
+	    evt.preventDefault();
 	}
 	function onTouchEnd(evt) {
-	    var detail = getPointerDetail(getTouchPoints(evt)[0]);
+	    var detail = getPointerDetail(getTouchPoints(evt)[0], evt.timeStamp);
 	    dispatchPointerEvent(Events.POINTER_UP, evt.target, detail);
+	    evt.preventDefault();
 	}
 	function onPointerDown(evt) {
 	    dispatchPointerEvent(Events.POINTER_DOWN, evt.target, getPointerDetail(evt));
@@ -4728,7 +4756,7 @@ var app =
 	var behavior_1 = __webpack_require__(79);
 	var layouter_1 = __webpack_require__(80);
 	var binding_rule_1 = __webpack_require__(81);
-	var iview_modal_1 = __webpack_require__(83);
+	var iview_model_1 = __webpack_require__(83);
 	(function (WidgetMode) {
 	    WidgetMode[WidgetMode["RUNTIME"] = 0] = "RUNTIME";
 	    WidgetMode[WidgetMode["DESIGN"] = 1] = "DESIGN";
@@ -4770,11 +4798,11 @@ var app =
 	        this.layoutRect = rect_1.Rect.create(0, 0, 0, 0);
 	        this.eChangeEvent = Events.ChangeEvent.create();
 	        this.ePropChangeEvent = Events.PropChangeEvent.create();
-	        this.viewModalChangeFunc = function (evt) {
-	            var viewModal = this._viewModal;
+	        this.viewModelChangeFunc = function (evt) {
+	            var viewModel = this._viewModel;
 	            var dataBindingRule = this._dataBindingRule;
-	            if (dataBindingRule && viewModal) {
-	                this.onBindData(viewModal, dataBindingRule);
+	            if (dataBindingRule && viewModel) {
+	                this.onBindData(viewModel, dataBindingRule);
 	            }
 	        }.bind(this);
 	        this.type = type;
@@ -4978,6 +5006,26 @@ var app =
 	        }
 	        this.dispatchEvent(evt, false);
 	    };
+	    Widget.prototype.dispatchPointerLeave = function (evt) {
+	        if (this.state === WidgetState.OVER || this.state === WidgetState.ACTIVE) {
+	            var e = Events.PointerEvent.create(Events.POINTER_LEAVE, evt);
+	            this.dispatchEvent(e, false);
+	            this.state = WidgetState.NORMAL;
+	            e.dispose();
+	        }
+	        if (this.target) {
+	            this.target.dispatchPointerLeave(evt);
+	        }
+	        if (this._lastOverWidget) {
+	            this._lastOverWidget.dispatchPointerLeave(evt);
+	            this._lastOverWidget = null;
+	        }
+	    };
+	    Widget.prototype.dispatchPointerEnter = function (evt) {
+	        var e = Events.PointerEvent.create(Events.POINTER_ENTER, evt);
+	        this.dispatchEvent(e, false);
+	        e.dispose();
+	    };
 	    Widget.prototype.dispatchPointerMoveToUnder = function (evt, ctx) {
 	        ctx.save();
 	        this.applyTransform(ctx);
@@ -4990,15 +5038,10 @@ var app =
 	                var e = null;
 	                if (_lastOverWidget) {
 	                    _lastOverWidget.dispatchPointerMove(evt, ctx);
-	                    e = Events.PointerEvent.create(Events.POINTER_LEAVE, evt);
-	                    _lastOverWidget.dispatchEvent(e, false);
-	                    e.dispose();
-	                    _lastOverWidget.state = WidgetState.NORMAL;
+	                    _lastOverWidget.dispatchPointerLeave(evt);
 	                }
 	                if (overWidget) {
-	                    e = Events.PointerEvent.create(Events.POINTER_ENTER, evt);
-	                    overWidget.dispatchEvent(e, false);
-	                    e.dispose();
+	                    overWidget.dispatchPointerEnter(evt);
 	                }
 	                this._lastOverWidget = overWidget;
 	            }
@@ -5256,7 +5299,7 @@ var app =
 	     */
 	    Widget.prototype.relayoutChildren = function () {
 	        this.requestRedraw();
-	        if (this.childrenLayouter && ((this.w > 0 && this.h > 0) || this._inited)) {
+	        if (this.children.length > 0 && this.childrenLayouter && ((this.w > 0 && this.h > 0) || this._inited)) {
 	            var ret = this.childrenLayouter.layoutChildren(this, this.children, this.getLayoutRect());
 	            return this.layoutRect.copy(ret);
 	        }
@@ -5312,6 +5355,9 @@ var app =
 	         */
 	        set: function (param) {
 	            this._layoutParam = param;
+	            if (param) {
+	                param.widget = this;
+	            }
 	        },
 	        enumerable: true,
 	        configurable: true
@@ -5590,7 +5636,7 @@ var app =
 	        this._children = [];
 	        this._layoutParam = null;
 	        this._childrenLayouter = null;
-	        this._viewModal = null;
+	        this._viewModel = null;
 	        this._dataBindingRule = null;
 	        this.removeBinding();
 	        if (this.recycle) {
@@ -6260,7 +6306,7 @@ var app =
 	        this.onkeydown = null;
 	        this.onkeyup = null;
 	        this._behaviors = {};
-	        this._viewModal = null;
+	        this._viewModel = null;
 	        this._dataBindingRule = null;
 	        this.onReset();
 	        this.set(options);
@@ -6396,7 +6442,7 @@ var app =
 	        configurable: true
 	    });
 	    /**
-	     * 显式的更新ViewModal。
+	     * 显式的更新ViewModel。
 	     */
 	    Widget.prototype.updateExplicit = function () {
 	        if (this._dataBindingRule) {
@@ -6407,12 +6453,12 @@ var app =
 	        });
 	    };
 	    Widget.prototype.removeBinding = function () {
-	        var viewModal = this._viewModal;
+	        var viewModel = this._viewModel;
 	        var dataBindingRule = this._dataBindingRule;
-	        if (dataBindingRule && viewModal) {
-	            viewModal.offChange(this.viewModalChangeFunc);
+	        if (dataBindingRule && viewModel) {
+	            viewModel.offChange(this.viewModelChangeFunc);
 	        }
-	        this._viewModal = null;
+	        this._viewModel = null;
 	        this._dataBindingRule = null;
 	    };
 	    Widget.prototype.onBeforeBindData = function () {
@@ -6422,26 +6468,26 @@ var app =
 	    /**
 	     * 绑定数据。
 	     */
-	    Widget.prototype.bindData = function (viewModal) {
+	    Widget.prototype.bindData = function (viewModel) {
 	        var _this = this;
 	        var dataBindingRule = this._dataBindingRule;
-	        this._viewModal = viewModal;
+	        this._viewModel = viewModel;
 	        this.onBeforeBindData();
-	        if (dataBindingRule && viewModal) {
-	            var bindingMode = viewModal.getBindingMode();
-	            this.onBindCommand(viewModal, dataBindingRule);
-	            if (bindingMode !== iview_modal_1.BindingMode.ONE_WAY_TO_SOURCE) {
-	                this.onBindData(viewModal, dataBindingRule);
+	        if (dataBindingRule && viewModel) {
+	            var bindingMode = viewModel.bindingMode;
+	            this.onBindCommand(viewModel, dataBindingRule);
+	            if (bindingMode !== iview_model_1.BindingMode.ONE_WAY_TO_SOURCE) {
+	                this.onBindData(viewModel, dataBindingRule);
 	            }
-	            if (bindingMode === iview_modal_1.BindingMode.TWO_WAY || bindingMode === iview_modal_1.BindingMode.ONE_WAY_TO_SOURCE) {
+	            if (bindingMode === iview_model_1.BindingMode.TWO_WAY || bindingMode === iview_model_1.BindingMode.ONE_WAY_TO_SOURCE) {
 	                this.watchTargetChange(dataBindingRule);
 	            }
-	            if (bindingMode !== iview_modal_1.BindingMode.ONE_TIME && bindingMode !== iview_modal_1.BindingMode.ONE_WAY_TO_SOURCE) {
-	                viewModal.onChange(this.viewModalChangeFunc);
+	            if (bindingMode !== iview_model_1.BindingMode.ONE_TIME && bindingMode !== iview_model_1.BindingMode.ONE_WAY_TO_SOURCE) {
+	                viewModel.onChange(this.viewModelChangeFunc);
 	            }
 	            this._isEnableFunc = function () {
 	                var enable = true;
-	                var vm = this._viewModal;
+	                var vm = this._viewModel;
 	                if (vm) {
 	                    dataBindingRule.forEach(function (prop, item) {
 	                        var source = item.source;
@@ -6454,46 +6500,46 @@ var app =
 	                return enable;
 	            };
 	        }
-	        this.bindChildren(viewModal);
-	        if (viewModal.isCollection && this._templateItemJson) {
-	            var collectionViewModal = viewModal;
-	            collectionViewModal.onItemsChange(function (evt) {
-	                _this.bindChildren(viewModal);
+	        this.bindChildren(viewModel);
+	        if (viewModel.isCollection && this._templateItemJson) {
+	            var collectionViewModel = viewModel;
+	            collectionViewModel.onItemsChange(function (evt) {
+	                _this.bindChildren(viewModel);
 	            });
 	        }
 	        this.onAfterBindData();
 	        return this;
 	    };
-	    Widget.prototype.bindChildren = function (viewModal) {
-	        if (viewModal.isCollection) {
+	    Widget.prototype.bindChildren = function (viewModel) {
+	        if (viewModel.isCollection) {
 	            if (this._templateItemJson) {
-	                //对于集合viewModal，如果有模板项存在，则动态生成子控件。
+	                //对于集合viewModel，如果有模板项存在，则动态生成子控件。
 	                var json = this._templateItemJson;
-	                var collectionViewModal = viewModal;
-	                var n = collectionViewModal.total;
+	                var collectionViewModel = viewModel;
+	                var n = collectionViewModel.total;
 	                this.removeAllChildren();
 	                for (var i = 0; i < n; i++) {
-	                    var itemViewModal = collectionViewModal.getItemViewModal(i);
+	                    var itemViewModel = collectionViewModel.getItemViewModel(i);
 	                    var child = this.addChildWithTemplate(true);
-	                    child.bindData(itemViewModal);
+	                    child.bindData(itemViewModel);
 	                }
 	                this.relayoutChildren();
 	            }
 	            else {
-	                //对于集合viewModal，如果没有模板项存在，则绑定集合viewModal当前项到子控件。
+	                //对于集合viewModel，如果没有模板项存在，则绑定集合viewModel当前项到子控件。
 	                this._children.forEach(function (child) {
-	                    child.bindData(viewModal);
+	                    child.bindData(viewModel);
 	                });
 	            }
 	        }
 	        else {
-	            //对于非集合viewModal，按正常绑定子控件。
+	            //对于非集合viewModel，按正常绑定子控件。
 	            this._children.forEach(function (child) {
-	                child.bindData(viewModal);
+	                child.bindData(viewModel);
 	            });
 	        }
 	    };
-	    Widget.prototype.onBindCommand = function (viewModal, dataBindingRule) {
+	    Widget.prototype.onBindCommand = function (viewModel, dataBindingRule) {
 	        var _this = this;
 	        dataBindingRule.forEach(function (prop, item) {
 	            var source = item.source;
@@ -6506,7 +6552,7 @@ var app =
 	                    }
 	                    commandSource.eventHandler = function (evt) {
 	                        var args = commandSource.commandArgs || evt;
-	                        viewModal.execCommand(commandSource.command, args);
+	                        viewModel.execCommand(commandSource.command, args);
 	                    };
 	                    _this.on(type, commandSource.eventHandler);
 	                }
@@ -6519,25 +6565,25 @@ var app =
 	    /*
 	     * 把数据显示到界面上。
 	     */
-	    Widget.prototype.onBindData = function (viewModal, dataBindingRule) {
+	    Widget.prototype.onBindData = function (viewModel, dataBindingRule) {
 	        var _this = this;
 	        dataBindingRule.forEach(function (prop, item) {
 	            var source = item.source;
 	            if (source.type === binding_rule_1.BindingDataSource.TYPE) {
 	                var dataSource = source;
 	                var value = dataSource.value;
-	                var bindingMode = dataSource.mode || iview_modal_1.BindingMode.TWO_WAY;
+	                var bindingMode = dataSource.mode || iview_model_1.BindingMode.TWO_WAY;
 	                if (value === undefined && dataSource.path) {
-	                    value = viewModal.getProp(dataSource.path, dataSource.converter);
+	                    value = viewModel.getProp(dataSource.path, dataSource.converter);
 	                }
-	                if (bindingMode !== iview_modal_1.BindingMode.ONE_WAY_TO_SOURCE) {
+	                if (bindingMode !== iview_model_1.BindingMode.ONE_WAY_TO_SOURCE) {
 	                    _this.onBindProp(prop, value);
 	                }
 	            }
 	        });
 	    };
 	    Widget.prototype.getPropDefaultBindMode = function (prop) {
-	        return (prop === "value" && this.inputable) ? iview_modal_1.BindingMode.TWO_WAY : iview_modal_1.BindingMode.ONE_WAY;
+	        return (prop === "value" && this.inputable) ? iview_model_1.BindingMode.TWO_WAY : iview_model_1.BindingMode.ONE_WAY;
 	    };
 	    /*
 	     * 子控件重载此函数向用户提示数据无效。
@@ -6553,14 +6599,14 @@ var app =
 	        dataBindingRule.forEach(function (prop, item) {
 	            if (item.source.type === binding_rule_1.BindingDataSource.TYPE) {
 	                var dataSource = item.source;
-	                if (dataSource.updateTiming === iview_modal_1.UpdateTiming.EXPLICIT) {
+	                if (dataSource.updateTiming === iview_model_1.UpdateTiming.EXPLICIT) {
 	                    _this.updateValueToSource(_this.value, dataSource);
 	                }
 	            }
 	        });
 	    };
 	    Widget.prototype.updateValueToSource = function (value, dataSource, oldValue) {
-	        var result = this._viewModal.setPropEx(dataSource, value, oldValue);
+	        var result = this._viewModel.setPropEx(dataSource, value, oldValue);
 	        if (result.code) {
 	            this.onInvalidInput(result.message);
 	        }
@@ -6574,15 +6620,15 @@ var app =
 	    Widget.prototype.watchTargetValueChange = function (dataSource) {
 	        var _this = this;
 	        var updateTiming = dataSource.updateTiming;
-	        var bindingMode = dataSource.mode || iview_modal_1.BindingMode.TWO_WAY;
-	        if (updateTiming === iview_modal_1.UpdateTiming.EXPLICIT) {
+	        var bindingMode = dataSource.mode || iview_model_1.BindingMode.TWO_WAY;
+	        if (updateTiming === iview_model_1.UpdateTiming.EXPLICIT) {
 	            return;
 	        }
-	        if (bindingMode === iview_modal_1.BindingMode.TWO_WAY || bindingMode === iview_modal_1.BindingMode.ONE_WAY_TO_SOURCE) {
+	        if (bindingMode === iview_model_1.BindingMode.TWO_WAY || bindingMode === iview_model_1.BindingMode.ONE_WAY_TO_SOURCE) {
 	            this.on(Events.CHANGE, function (evt) {
 	                _this.updateValueToSource(evt.value, dataSource, evt.oldValue);
 	            });
-	            if (updateTiming === iview_modal_1.UpdateTiming.CHANGING) {
+	            if (updateTiming === iview_model_1.UpdateTiming.CHANGING) {
 	                this.on(Events.CHANGING, function (evt) {
 	                    _this.updateValueToSource(evt.value, dataSource);
 	                });
@@ -6599,7 +6645,7 @@ var app =
 	            if (source.type === binding_rule_1.BindingDataSource.TYPE) {
 	                var dataSource = source;
 	                var bindingMode = _this.getPropDefaultBindMode(prop);
-	                if (bindingMode === iview_modal_1.BindingMode.TWO_WAY) {
+	                if (bindingMode === iview_model_1.BindingMode.TWO_WAY) {
 	                    _this.watchTargetValueChange(dataSource);
 	                }
 	            }
@@ -17315,10 +17361,27 @@ var app =
 	    return LayouterFactory;
 	}(factory_1.Factory));
 	exports.LayouterFactory = LayouterFactory;
+	/**
+	 * 布局参数。
+	 * 如果父控件有指定childrenLayouter，那么其中的子控件需要有与之对应的LayouterParam。
+	 */
 	var LayouterParam = (function () {
 	    function LayouterParam(type) {
 	        this.type = type;
 	    }
+	    Object.defineProperty(LayouterParam.prototype, "widget", {
+	        get: function () {
+	            return this._widget;
+	        },
+	        /**
+	         * 与之关联的Widget。
+	         */
+	        set: function (value) {
+	            this._widget = value;
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    /**
 	     * 从JSON数据创建。
 	     */
@@ -17386,11 +17449,11 @@ var app =
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var json_serializer_1 = __webpack_require__(82);
-	var iview_modal_1 = __webpack_require__(83);
-	var iview_modal_2 = __webpack_require__(83);
+	var iview_model_1 = __webpack_require__(83);
+	var iview_model_2 = __webpack_require__(83);
 	;
 	/**
-	 * 数据源。如果指定了value，直接从value获取数据。否则通过path从ViewModal中获取数据。
+	 * 数据源。如果指定了value，直接从value获取数据。否则通过path从ViewModel中获取数据。
 	 */
 	var BindingDataSource = (function (_super) {
 	    __extends(BindingDataSource, _super);
@@ -17399,8 +17462,8 @@ var app =
 	        this.converter = converter;
 	        this.type = BindingDataSource.TYPE;
 	        this.validationRule = validationRule;
-	        this.mode = mode || iview_modal_2.BindingMode.TWO_WAY;
-	        this.updateTiming = updateTiming !== undefined ? updateTiming : iview_modal_2.UpdateTiming.CHANGING;
+	        this.mode = mode || iview_model_2.BindingMode.TWO_WAY;
+	        this.updateTiming = updateTiming !== undefined ? updateTiming : iview_model_2.UpdateTiming.CHANGING;
 	        if (path !== undefined) {
 	            this.path = path;
 	        }
@@ -17521,11 +17584,11 @@ var app =
 	            }
 	            var mode = dataSource.mode;
 	            if (mode && typeof mode === "string") {
-	                dataSource.mode = iview_modal_1.toBindingMode(mode);
+	                dataSource.mode = iview_model_1.toBindingMode(mode);
 	            }
 	            var updateTiming = dataSource.updateTiming;
 	            if (updateTiming && typeof updateTiming === "string") {
-	                dataSource.updateTiming = iview_modal_1.toUpdateTiming(updateTiming);
+	                dataSource.updateTiming = iview_model_1.toUpdateTiming(updateTiming);
 	            }
 	        }
 	        return rule;
@@ -17583,22 +17646,22 @@ var app =
 	(function (BindingMode) {
 	    /**
 	     * 双向数据绑定。
-	     * 界面数据变化时自动更新ViewModal，ViewModal数据有变化时自动更新界面。
+	     * 界面数据变化时自动更新ViewModel，ViewModel数据有变化时自动更新界面。
 	     */
 	    BindingMode[BindingMode["TWO_WAY"] = 0] = "TWO_WAY";
 	    /**
 	     * 单向数据绑定。
-	     * 界面数据变化时不更新ViewModal，ViewModal数据有变化时自动更新界面。
+	     * 界面数据变化时不更新ViewModel，ViewModel数据有变化时自动更新界面。
 	     */
 	    BindingMode[BindingMode["ONE_WAY"] = 1] = "ONE_WAY";
 	    /**
 	     * 只在初始化时绑定。
-	     * 界面数据变化时不更新ViewModal，ViewModal数据有变化时不更新界面。
+	     * 界面数据变化时不更新ViewModel，ViewModel数据有变化时不更新界面。
 	     */
 	    BindingMode[BindingMode["ONE_TIME"] = 2] = "ONE_TIME";
 	    /**
 	     * 单向数据绑定。
-	     * 界面数据变化时自动更新ViewModal，ViewModal数据有变化时不更新界面。
+	     * 界面数据变化时自动更新ViewModel，ViewModel数据有变化时不更新界面。
 	     */
 	    BindingMode[BindingMode["ONE_WAY_TO_SOURCE"] = 3] = "ONE_WAY_TO_SOURCE";
 	})(exports.BindingMode || (exports.BindingMode = {}));
@@ -17610,7 +17673,7 @@ var app =
 	}
 	exports.toBindingMode = toBindingMode;
 	/**
-	 * 更新ViewModal的时机。
+	 * 更新ViewModel的时机。
 	 */
 	(function (UpdateTiming) {
 	    /**
@@ -18413,6 +18476,7 @@ var app =
 	    __extends(Window, _super);
 	    function Window(type) {
 	        _super.call(this, type);
+	        this._windowEvent = Events.WindowEvent.create();
 	    }
 	    Object.defineProperty(Window.prototype, "grabbed", {
 	        get: function () {
@@ -18507,9 +18571,16 @@ var app =
 	            this._canvas.grabKey();
 	        }
 	        this.init();
-	        this.dispatchEvent({ type: Events.OPEN });
 	        this.relayoutChildren();
+	        this.dispatchWindowEvent(Events.WINDOW_OPEN);
 	        return this;
+	    };
+	    Window.prototype.dispatchWindowEvent = function (type) {
+	        var e = this._windowEvent.reset(type, this);
+	        this.dispatchEvent(e);
+	        if (this.app) {
+	            this.app.dispatchEvent(e);
+	        }
 	    };
 	    /**
 	     * 关闭窗口。
@@ -18518,7 +18589,7 @@ var app =
 	        if (this._hasOwnCanvas) {
 	            this._canvas.ungrabKey();
 	        }
-	        this.dispatchEvent({ type: Events.CLOSE });
+	        this.dispatchWindowEvent(Events.WINDOW_CLOSE);
 	        this.ungrab();
 	        this.deinit();
 	        this.dispose();
@@ -18586,12 +18657,21 @@ var app =
 	            }
 	        });
 	    };
+	    Window.prototype.onCreated = function () {
+	        _super.prototype.onCreated.call(this);
+	        this.dispatchWindowEvent(Events.WINDOW_CREATED);
+	    };
 	    Window.prototype.onReset = function () {
 	        this._isWindow = true;
 	        this._grabbed = false;
 	        this.hasOwnCanvas = true;
 	        this._pointerPosition = point_1.Point.create(0, 0);
 	        this._shortcutEvent = Events.ShortcutEvent.create(null, null);
+	    };
+	    Window.prototype.reset = function (type, options) {
+	        this._app = options ? options.app : null;
+	        this.dispatchWindowEvent(Events.WINDOW_CREATE);
+	        return _super.prototype.reset.call(this, type, options);
 	    };
 	    return Window;
 	}(widget_1.Widget));
@@ -23015,7 +23095,7 @@ var app =
 	    ListView.prototype.relayoutChildren = function () {
 	        var r = _super.prototype.relayoutChildren.call(this);
 	        this.contentW = r.w + this.leftPadding + this.rightPadding;
-	        this.contentH = r.h + this.topPadding + this.bottomPadding + 10;
+	        this.contentH = r.h + this.topPadding + this.bottomPadding;
 	        return r;
 	    };
 	    ListView.prototype.onReset = function () {
@@ -23102,7 +23182,7 @@ var app =
 	            child.relayoutChildren();
 	            y += h;
 	        }
-	        this.rect.init(rect.x, rect.y, w, y);
+	        this.rect.init(rect.x, rect.y, w, y - rect.y);
 	        return this.rect;
 	    };
 	    ListLayouter.prototype.createParam = function (options) {
@@ -24269,9 +24349,10 @@ var app =
 	var theme_manager_1 = __webpack_require__(124);
 	var device_info_1 = __webpack_require__(125);
 	var service_locator_1 = __webpack_require__(126);
+	var window_manager_1 = __webpack_require__(127);
 	var inputEventAdapter = __webpack_require__(17);
-	var interaction_request_1 = __webpack_require__(127);
-	var interaction_service_1 = __webpack_require__(129);
+	var interaction_request_1 = __webpack_require__(128);
+	var interaction_service_1 = __webpack_require__(130);
 	/**
 	 * 代表整个应用程序，可以通过Application获取各种服务。
 	 *
@@ -24397,6 +24478,9 @@ var app =
 	            var time = evt.deltaTime;
 	            TWEEN.update(time);
 	        });
+	        if (device_info_1.DeviceInfo.isMobile || this.options.isMobile) {
+	            this._windwManager = window_manager_1.WindowManager.create({ app: this });
+	        }
 	        return this;
 	    };
 	    Application.prototype.getService = function (name) {
@@ -24592,7 +24676,60 @@ var app =
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var interaction_types_1 = __webpack_require__(128);
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var widget_1 = __webpack_require__(21);
+	var Events = __webpack_require__(8);
+	var widget_factory_1 = __webpack_require__(25);
+	var widget_recyclable_creator_1 = __webpack_require__(84);
+	var WindowManager = (function (_super) {
+	    __extends(WindowManager, _super);
+	    function WindowManager() {
+	        _super.call(this, WindowManager.TYPE);
+	    }
+	    WindowManager.prototype.onWindowCreate = function (evt) {
+	        console.log("onWindowCreate");
+	    };
+	    WindowManager.prototype.onWindowCreated = function (evt) {
+	        console.log("onWindowCreated");
+	    };
+	    WindowManager.prototype.onWindowOpen = function (evt) {
+	        console.log("onWindowOpen");
+	    };
+	    WindowManager.prototype.onWindowClose = function (evt) {
+	        console.log("onWindowClose");
+	    };
+	    WindowManager.prototype.onCreated = function () {
+	        var _this = this;
+	        _super.prototype.onCreated.call(this);
+	        var app = this.app;
+	        this.createCanvas();
+	        app.on(Events.WINDOW_OPEN, function (evt) { return _this.onWindowOpen(evt); });
+	        app.on(Events.WINDOW_CLOSE, function (evt) { return _this.onWindowClose(evt); });
+	        app.on(Events.WINDOW_CREATE, function (evt) { return _this.onWindowCreate(evt); });
+	        app.on(Events.WINDOW_CREATED, function (evt) { return _this.onWindowCreated(evt); });
+	    };
+	    WindowManager.create = function (options) {
+	        return WindowManager.recycleBin.create(options);
+	    };
+	    WindowManager.TYPE = "window-manager";
+	    WindowManager.recycleBin = widget_recyclable_creator_1.WidgetRecyclableCreator.create(WindowManager);
+	    return WindowManager;
+	}(widget_1.Widget));
+	exports.WindowManager = WindowManager;
+	;
+	widget_factory_1.WidgetFactory.register(WindowManager.TYPE, WindowManager.create);
+
+
+/***/ },
+/* 128 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var interaction_types_1 = __webpack_require__(129);
 	var InteractionRequest = (function () {
 	    function InteractionRequest(service) {
 	        this.service = service;
@@ -24655,7 +24792,7 @@ var app =
 
 
 /***/ },
-/* 128 */
+/* 129 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -24676,20 +24813,20 @@ var app =
 
 
 /***/ },
-/* 129 */
+/* 130 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var emitter_1 = __webpack_require__(6);
 	var Events = __webpack_require__(8);
-	var toast_dialog_1 = __webpack_require__(130);
-	var input_dialog_1 = __webpack_require__(134);
-	var props_dialog_1 = __webpack_require__(135);
-	var choice_dialog_1 = __webpack_require__(160);
-	var progress_dialog_1 = __webpack_require__(161);
-	var confirmation_dialog_1 = __webpack_require__(162);
-	var notification_dialog_1 = __webpack_require__(163);
-	var interaction_types_1 = __webpack_require__(128);
+	var toast_dialog_1 = __webpack_require__(131);
+	var input_dialog_1 = __webpack_require__(135);
+	var props_dialog_1 = __webpack_require__(136);
+	var choice_dialog_1 = __webpack_require__(161);
+	var progress_dialog_1 = __webpack_require__(162);
+	var confirmation_dialog_1 = __webpack_require__(163);
+	var notification_dialog_1 = __webpack_require__(164);
+	var interaction_types_1 = __webpack_require__(129);
 	var InteractionService = (function () {
 	    function InteractionService() {
 	        this._emitter = new emitter_1.Emitter();
@@ -24764,11 +24901,11 @@ var app =
 
 
 /***/ },
-/* 130 */
+/* 131 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var message_box_1 = __webpack_require__(131);
+	var message_box_1 = __webpack_require__(132);
 	var ToastDialog = (function () {
 	    function ToastDialog() {
 	    }
@@ -24782,7 +24919,7 @@ var app =
 
 
 /***/ },
-/* 131 */
+/* 132 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -24806,8 +24943,8 @@ var app =
 	var consts_1 = __webpack_require__(107);
 	var widget_recyclable_creator_1 = __webpack_require__(84);
 	var list_item_1 = __webpack_require__(116);
-	var dock_layouter_1 = __webpack_require__(132);
-	var linear_layouter_1 = __webpack_require__(133);
+	var dock_layouter_1 = __webpack_require__(133);
+	var linear_layouter_1 = __webpack_require__(134);
 	var grid_layouter_1 = __webpack_require__(119);
 	var simple_layouter_1 = __webpack_require__(117);
 	var TitleOptions = (function () {
@@ -25008,7 +25145,7 @@ var app =
 	        buttonsOption.buttons.push({ styleType: "button.ok", text: "Close", onClick: null });
 	        var titleOptions = new TitleOptions("Infomation", "messagebox.info.icon", true);
 	        messageBox.createChildren(titleOptions, buttonsOption, msg);
-	        messageBox.on(Events.CLOSE, onClose);
+	        messageBox.on(Events.WINDOW_CLOSE, onClose);
 	        messageBox.open();
 	    };
 	    MessageBox.showConfirm = function (msg, onYes, onNo, w) {
@@ -25159,7 +25296,7 @@ var app =
 
 
 /***/ },
-/* 132 */
+/* 133 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -25168,6 +25305,7 @@ var app =
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
+	var Events = __webpack_require__(8);
 	var consts_1 = __webpack_require__(107);
 	var layouter_1 = __webpack_require__(80);
 	var TYPE = "dock";
@@ -25273,6 +25411,30 @@ var app =
 	        this.size = size;
 	        this.position = position;
 	    }
+	    Object.defineProperty(DockLayouterParam.prototype, "widget", {
+	        set: function (widget) {
+	            var _this = this;
+	            this._widget = widget;
+	            widget.on(Events.RESIZING, function (evt) { return _this.onWidgetResized(); });
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    /**
+	     * 对应的Widget被用户RESIZE之后，重排兄弟控件。
+	     */
+	    DockLayouterParam.prototype.onWidgetResized = function () {
+	        var widget = this._widget;
+	        if (this.position === consts_1.Direction.LEFT || this.position === consts_1.Direction.RIGHT) {
+	            var w = widget.w;
+	            this.size = w.toString();
+	        }
+	        else if (this.position === consts_1.Direction.TOP || this.position === consts_1.Direction.BOTTOM) {
+	            var h = widget.h;
+	            this.size = h.toString();
+	        }
+	        widget.parent.relayoutChildren();
+	    };
 	    DockLayouterParam.create = function (opts) {
 	        var options = opts || {};
 	        return new DockLayouterParam(options.position, options.size || "");
@@ -25285,7 +25447,7 @@ var app =
 
 
 /***/ },
-/* 133 */
+/* 134 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -25496,11 +25658,11 @@ var app =
 
 
 /***/ },
-/* 134 */
+/* 135 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var message_box_1 = __webpack_require__(131);
+	var message_box_1 = __webpack_require__(132);
 	var InputDialog = (function () {
 	    function InputDialog() {
 	    }
@@ -25517,11 +25679,11 @@ var app =
 
 
 /***/ },
-/* 135 */
+/* 136 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var property_dialog_1 = __webpack_require__(136);
+	var property_dialog_1 = __webpack_require__(137);
 	var PropsDialog = (function () {
 	    function PropsDialog() {
 	    }
@@ -25539,7 +25701,7 @@ var app =
 
 
 /***/ },
-/* 136 */
+/* 137 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -25549,11 +25711,11 @@ var app =
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var application_1 = __webpack_require__(123);
-	var property_page_1 = __webpack_require__(137);
-	var view_modal_1 = __webpack_require__(155);
+	var property_page_1 = __webpack_require__(138);
+	var view_model_1 = __webpack_require__(156);
 	var widget_recyclable_creator_1 = __webpack_require__(84);
 	var widget_factory_1 = __webpack_require__(25);
-	var message_box_1 = __webpack_require__(131);
+	var message_box_1 = __webpack_require__(132);
 	var simple_layouter_1 = __webpack_require__(117);
 	/**
 	 * 属性对话框。
@@ -25592,7 +25754,7 @@ var app =
 	        messageBox.createChildren(titleOptions, buttonsOption, null);
 	        var group = messageBox.content.set({ padding: 5, childrenLayouter: simple_layouter_1.SimpleLayouter.create() });
 	        group.addChild(page);
-	        var vm = view_modal_1.ViewModal.create(dataCopy);
+	        var vm = view_model_1.ViewModel.create(dataCopy);
 	        page.bindData(vm);
 	        messageBox.open();
 	    };
@@ -25608,7 +25770,7 @@ var app =
 
 
 /***/ },
-/* 137 */
+/* 138 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -25618,24 +25780,24 @@ var app =
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var Events = __webpack_require__(8);
-	var title_link_1 = __webpack_require__(138);
-	var title_line_1 = __webpack_require__(140);
-	var title_edit_1 = __webpack_require__(142);
-	var title_label_1 = __webpack_require__(143);
-	var title_check_button_1 = __webpack_require__(144);
-	var title_range_1 = __webpack_require__(145);
-	var title_vector_1 = __webpack_require__(147);
+	var title_link_1 = __webpack_require__(139);
+	var title_line_1 = __webpack_require__(141);
+	var title_edit_1 = __webpack_require__(143);
+	var title_label_1 = __webpack_require__(144);
+	var title_check_button_1 = __webpack_require__(145);
+	var title_range_1 = __webpack_require__(146);
+	var title_vector_1 = __webpack_require__(148);
 	var widget_1 = __webpack_require__(21);
-	var title_slider_1 = __webpack_require__(149);
-	var title_text_area_1 = __webpack_require__(150);
+	var title_slider_1 = __webpack_require__(150);
+	var title_text_area_1 = __webpack_require__(151);
 	var widget_factory_1 = __webpack_require__(25);
 	var widget_recyclable_creator_1 = __webpack_require__(84);
-	var title_choosable_edit_1 = __webpack_require__(151);
-	var props_desc_1 = __webpack_require__(153);
-	var title_combo_box_1 = __webpack_require__(154);
-	var props_desc_2 = __webpack_require__(153);
-	var props_desc_3 = __webpack_require__(153);
-	var props_desc_4 = __webpack_require__(153);
+	var title_choosable_edit_1 = __webpack_require__(152);
+	var props_desc_1 = __webpack_require__(154);
+	var title_combo_box_1 = __webpack_require__(155);
+	var props_desc_2 = __webpack_require__(154);
+	var props_desc_3 = __webpack_require__(154);
+	var props_desc_4 = __webpack_require__(154);
 	/**
 	 * 属性编辑页，包装了各种TitleValue。
 	 */
@@ -25962,10 +26124,10 @@ var app =
 	            console.log("reload changed");
 	            _this.initWithPropsDesc(propsDesc);
 	        });
-	        var viewModal = this._viewModal;
-	        if (viewModal) {
+	        var viewModel = this._viewModel;
+	        if (viewModel) {
 	            this.children.forEach(function (child) {
-	                child.bindData(viewModal);
+	                child.bindData(viewModel);
 	            });
 	        }
 	        this.relayoutChildren();
@@ -26017,7 +26179,7 @@ var app =
 
 
 /***/ },
-/* 138 */
+/* 139 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -26028,7 +26190,7 @@ var app =
 	};
 	var Events = __webpack_require__(8);
 	var label_1 = __webpack_require__(20);
-	var title_value_1 = __webpack_require__(139);
+	var title_value_1 = __webpack_require__(140);
 	var widget_factory_1 = __webpack_require__(25);
 	var widget_recyclable_creator_1 = __webpack_require__(84);
 	var TitleLink = (function (_super) {
@@ -26063,7 +26225,7 @@ var app =
 
 
 /***/ },
-/* 139 */
+/* 140 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -26075,7 +26237,7 @@ var app =
 	var Events = __webpack_require__(8);
 	var label_1 = __webpack_require__(20);
 	var widget_1 = __webpack_require__(21);
-	var linear_layouter_1 = __webpack_require__(133);
+	var linear_layouter_1 = __webpack_require__(134);
 	var TitleValue = (function (_super) {
 	    __extends(TitleValue, _super);
 	    function TitleValue(type) {
@@ -26199,7 +26361,7 @@ var app =
 
 
 /***/ },
-/* 140 */
+/* 141 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -26208,8 +26370,8 @@ var app =
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var title_value_1 = __webpack_require__(139);
-	var color_tile_1 = __webpack_require__(141);
+	var title_value_1 = __webpack_require__(140);
+	var color_tile_1 = __webpack_require__(142);
 	var widget_factory_1 = __webpack_require__(25);
 	var widget_recyclable_creator_1 = __webpack_require__(84);
 	var TitleLine = (function (_super) {
@@ -26233,7 +26395,7 @@ var app =
 
 
 /***/ },
-/* 141 */
+/* 142 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -26493,7 +26655,7 @@ var app =
 
 
 /***/ },
-/* 142 */
+/* 143 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -26503,7 +26665,7 @@ var app =
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var edit_1 = __webpack_require__(19);
-	var title_value_1 = __webpack_require__(139);
+	var title_value_1 = __webpack_require__(140);
 	var widget_factory_1 = __webpack_require__(25);
 	var widget_recyclable_creator_1 = __webpack_require__(84);
 	var TitleEdit = (function (_super) {
@@ -26576,7 +26738,7 @@ var app =
 
 
 /***/ },
-/* 143 */
+/* 144 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -26586,7 +26748,7 @@ var app =
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var label_1 = __webpack_require__(20);
-	var title_value_1 = __webpack_require__(139);
+	var title_value_1 = __webpack_require__(140);
 	var widget_factory_1 = __webpack_require__(25);
 	var widget_recyclable_creator_1 = __webpack_require__(84);
 	var TitleLabel = (function (_super) {
@@ -26610,7 +26772,7 @@ var app =
 
 
 /***/ },
-/* 144 */
+/* 145 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -26619,7 +26781,7 @@ var app =
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var title_value_1 = __webpack_require__(139);
+	var title_value_1 = __webpack_require__(140);
 	var check_button_1 = __webpack_require__(109);
 	var widget_factory_1 = __webpack_require__(25);
 	var widget_recyclable_creator_1 = __webpack_require__(84);
@@ -26644,7 +26806,7 @@ var app =
 
 
 /***/ },
-/* 145 */
+/* 146 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -26653,8 +26815,8 @@ var app =
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var range_edit_1 = __webpack_require__(146);
-	var title_value_1 = __webpack_require__(139);
+	var range_edit_1 = __webpack_require__(147);
+	var title_value_1 = __webpack_require__(140);
 	var widget_factory_1 = __webpack_require__(25);
 	var widget_recyclable_creator_1 = __webpack_require__(84);
 	var TitleRange = (function (_super) {
@@ -26678,7 +26840,7 @@ var app =
 
 
 /***/ },
-/* 146 */
+/* 147 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -26814,7 +26976,7 @@ var app =
 
 
 /***/ },
-/* 147 */
+/* 148 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -26823,8 +26985,8 @@ var app =
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var vector_edit_1 = __webpack_require__(148);
-	var title_value_1 = __webpack_require__(139);
+	var vector_edit_1 = __webpack_require__(149);
+	var title_value_1 = __webpack_require__(140);
 	var widget_factory_1 = __webpack_require__(25);
 	var widget_recyclable_creator_1 = __webpack_require__(84);
 	var TitleVector = (function (_super) {
@@ -26865,7 +27027,7 @@ var app =
 
 
 /***/ },
-/* 148 */
+/* 149 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -27109,7 +27271,7 @@ var app =
 
 
 /***/ },
-/* 149 */
+/* 150 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -27119,7 +27281,7 @@ var app =
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var slider_1 = __webpack_require__(97);
-	var title_value_1 = __webpack_require__(139);
+	var title_value_1 = __webpack_require__(140);
 	var widget_factory_1 = __webpack_require__(25);
 	var widget_recyclable_creator_1 = __webpack_require__(84);
 	var TitleSlider = (function (_super) {
@@ -27143,7 +27305,7 @@ var app =
 
 
 /***/ },
-/* 150 */
+/* 151 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -27153,7 +27315,7 @@ var app =
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var edit_1 = __webpack_require__(19);
-	var title_value_1 = __webpack_require__(139);
+	var title_value_1 = __webpack_require__(140);
 	var widget_factory_1 = __webpack_require__(25);
 	var widget_recyclable_creator_1 = __webpack_require__(84);
 	var TitleTextArea = (function (_super) {
@@ -27195,7 +27357,7 @@ var app =
 
 
 /***/ },
-/* 151 */
+/* 152 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -27204,8 +27366,8 @@ var app =
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var title_value_1 = __webpack_require__(139);
-	var choosable_edit_1 = __webpack_require__(152);
+	var title_value_1 = __webpack_require__(140);
+	var choosable_edit_1 = __webpack_require__(153);
 	var widget_factory_1 = __webpack_require__(25);
 	var widget_recyclable_creator_1 = __webpack_require__(84);
 	var TitleChoosableEdit = (function (_super) {
@@ -27254,7 +27416,7 @@ var app =
 
 
 /***/ },
-/* 152 */
+/* 153 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -27353,7 +27515,7 @@ var app =
 
 
 /***/ },
-/* 153 */
+/* 154 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -27735,7 +27897,7 @@ var app =
 
 
 /***/ },
-/* 154 */
+/* 155 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -27744,7 +27906,7 @@ var app =
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var title_value_1 = __webpack_require__(139);
+	var title_value_1 = __webpack_require__(140);
 	var widget_factory_1 = __webpack_require__(25);
 	var widget_recyclable_creator_1 = __webpack_require__(84);
 	var combo_box_1 = __webpack_require__(113);
@@ -27817,35 +27979,6 @@ var app =
 
 
 /***/ },
-/* 155 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var view_modal_default_1 = __webpack_require__(156);
-	/**
-	 * IViewModal的基本实现。如果不能满足要求，可以重载部分函数。
-	 */
-	var ViewModal = (function (_super) {
-	    __extends(ViewModal, _super);
-	    function ViewModal() {
-	        _super.apply(this, arguments);
-	    }
-	    ViewModal.create = function (data) {
-	        var viewModal = new ViewModal(data);
-	        return viewModal;
-	    };
-	    return ViewModal;
-	}(view_modal_default_1.ViewModalDefault));
-	exports.ViewModal = ViewModal;
-	;
-
-
-/***/ },
 /* 156 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -27855,23 +27988,53 @@ var app =
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var pointer = __webpack_require__(157);
+	var view_model_default_1 = __webpack_require__(157);
+	/**
+	 * IViewModel的基本实现。如果不能满足要求，可以重载部分函数。
+	 */
+	var ViewModel = (function (_super) {
+	    __extends(ViewModel, _super);
+	    function ViewModel() {
+	        _super.apply(this, arguments);
+	    }
+	    ViewModel.create = function (data) {
+	        var viewModel = new ViewModel(data);
+	        return viewModel;
+	    };
+	    return ViewModel;
+	}(view_model_default_1.ViewModelDefault));
+	exports.ViewModel = ViewModel;
+	;
+
+
+/***/ },
+/* 157 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var pointer = __webpack_require__(158);
 	var emitter_1 = __webpack_require__(6);
 	var Events = __webpack_require__(8);
-	var ivalidation_rule_1 = __webpack_require__(159);
-	var iview_modal_1 = __webpack_require__(83);
-	var ViewModalDefault = (function (_super) {
-	    __extends(ViewModalDefault, _super);
-	    function ViewModalDefault(data) {
+	var ivalidation_rule_1 = __webpack_require__(160);
+	var iview_model_1 = __webpack_require__(83);
+	var ViewModelDefault = (function (_super) {
+	    __extends(ViewModelDefault, _super);
+	    function ViewModelDefault(data) {
 	        _super.call(this);
 	        this._commands = {};
 	        this._converters = {};
 	        this._data = data || {};
 	        this._validationRules = {};
 	        this.isCollection = false;
+	        this._bindingMode = iview_model_1.BindingMode.TWO_WAY;
 	        this._ePropChange = Events.PropChangeEvent.create();
 	    }
-	    Object.defineProperty(ViewModalDefault.prototype, "data", {
+	    Object.defineProperty(ViewModelDefault.prototype, "data", {
 	        get: function () {
 	            return this._data;
 	        },
@@ -27881,30 +28044,37 @@ var app =
 	        enumerable: true,
 	        configurable: true
 	    });
-	    ViewModalDefault.prototype.setData = function (value, notify) {
+	    ViewModelDefault.prototype.setData = function (value, notify) {
 	        this._data = value;
 	        if (notify) {
 	            this.notifyChange(Events.PROP_CHANGE, "/", null);
 	        }
 	        return this;
 	    };
-	    ViewModalDefault.prototype.getBindingMode = function () {
-	        return iview_modal_1.BindingMode.TWO_WAY;
-	    };
-	    ViewModalDefault.prototype.onChange = function (callback) {
+	    Object.defineProperty(ViewModelDefault.prototype, "bindingMode", {
+	        get: function () {
+	            return this._bindingMode;
+	        },
+	        set: function (value) {
+	            this._bindingMode = value;
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    ViewModelDefault.prototype.onChange = function (callback) {
 	        this.on(Events.PROP_DELETE, callback);
 	        this.on(Events.PROP_CHANGE, callback);
 	        return this;
 	    };
-	    ViewModalDefault.prototype.offChange = function (callback) {
+	    ViewModelDefault.prototype.offChange = function (callback) {
 	        this.off(Events.PROP_DELETE, callback);
 	        this.off(Events.PROP_CHANGE, callback);
 	        return this;
 	    };
-	    ViewModalDefault.prototype.notifyChange = function (type, path, value) {
+	    ViewModelDefault.prototype.notifyChange = function (type, path, value) {
 	        this.dispatchEvent(this._ePropChange.init(type, { prop: path, value: value }));
 	    };
-	    ViewModalDefault.prototype.fixPath = function (path) {
+	    ViewModelDefault.prototype.fixPath = function (path) {
 	        if (path && path.charAt(0) !== '/') {
 	            return '/' + path;
 	        }
@@ -27912,22 +28082,22 @@ var app =
 	            return path;
 	        }
 	    };
-	    ViewModalDefault.prototype.getProp = function (path, converterName) {
+	    ViewModelDefault.prototype.getProp = function (path, converterName) {
 	        var value = pointer.get(this._data, this.fixPath(path));
 	        return this.convert(converterName, value);
 	    };
-	    ViewModalDefault.prototype.delProp = function (path) {
+	    ViewModelDefault.prototype.delProp = function (path) {
 	        pointer.remove(this._data, path);
 	        this.notifyChange(Events.PROP_DELETE, this.fixPath(path), null);
 	        return this;
 	    };
-	    ViewModalDefault.prototype.setPropEx = function (source, value, oldValue) {
+	    ViewModelDefault.prototype.setPropEx = function (source, value, oldValue) {
 	        var path = source.path;
 	        var converterName = source.converter;
 	        var validationRule = source.validationRule;
 	        return this.setProp(path, value, converterName, validationRule);
 	    };
-	    ViewModalDefault.prototype.setProp = function (path, v, converterName, validationRule) {
+	    ViewModelDefault.prototype.setProp = function (path, v, converterName, validationRule) {
 	        var value = this.convertBack(converterName, v);
 	        var validateResult = this.isValueValid(validationRule, value);
 	        if (!validateResult.code) {
@@ -27940,10 +28110,10 @@ var app =
 	        return validateResult;
 	        ;
 	    };
-	    ViewModalDefault.prototype.getCommand = function (name) {
+	    ViewModelDefault.prototype.getCommand = function (name) {
 	        return this._commands[name];
 	    };
-	    ViewModalDefault.prototype.canExecute = function (name) {
+	    ViewModelDefault.prototype.canExecute = function (name) {
 	        var ret = false;
 	        var cmd = this.getCommand(name);
 	        if (cmd && cmd.canExecute()) {
@@ -27951,7 +28121,7 @@ var app =
 	        }
 	        return ret;
 	    };
-	    ViewModalDefault.prototype.execCommand = function (name, args) {
+	    ViewModelDefault.prototype.execCommand = function (name, args) {
 	        var ret = false;
 	        var cmd = this.getCommand(name);
 	        if (cmd && cmd.canExecute()) {
@@ -27959,61 +28129,61 @@ var app =
 	        }
 	        return ret;
 	    };
-	    ViewModalDefault.prototype.registerCommand = function (name, cmd) {
+	    ViewModelDefault.prototype.registerCommand = function (name, cmd) {
 	        this._commands[name] = cmd;
 	        return this;
 	    };
-	    ViewModalDefault.prototype.unregisterCommand = function (name) {
+	    ViewModelDefault.prototype.unregisterCommand = function (name) {
 	        this._commands[name] = null;
 	        return this;
 	    };
-	    ViewModalDefault.prototype.getValueConverter = function (name) {
+	    ViewModelDefault.prototype.getValueConverter = function (name) {
 	        return this._converters[name];
 	    };
-	    ViewModalDefault.prototype.registerValueConverter = function (name, converter) {
+	    ViewModelDefault.prototype.registerValueConverter = function (name, converter) {
 	        this._converters[name] = converter;
 	        return this;
 	    };
-	    ViewModalDefault.prototype.unregisterValueConverter = function (name) {
+	    ViewModelDefault.prototype.unregisterValueConverter = function (name) {
 	        this._converters[name] = null;
 	        return this;
 	    };
-	    ViewModalDefault.prototype.convert = function (converterName, value) {
+	    ViewModelDefault.prototype.convert = function (converterName, value) {
 	        var converter = converterName ? this.getValueConverter(converterName) : null;
 	        return converter ? converter.convert(value) : value;
 	    };
-	    ViewModalDefault.prototype.convertBack = function (converterName, value) {
+	    ViewModelDefault.prototype.convertBack = function (converterName, value) {
 	        var converter = converterName ? this.getValueConverter(converterName) : null;
 	        return converter ? converter.convertBack(value) : value;
 	    };
-	    ViewModalDefault.prototype.getValidationRule = function (name) {
+	    ViewModelDefault.prototype.getValidationRule = function (name) {
 	        return this._validationRules[name];
 	    };
-	    ViewModalDefault.prototype.registerValidationRule = function (name, validationRule) {
+	    ViewModelDefault.prototype.registerValidationRule = function (name, validationRule) {
 	        this._validationRules[name] = validationRule;
 	        return this;
 	    };
-	    ViewModalDefault.prototype.unregisterValidationRule = function (name) {
+	    ViewModelDefault.prototype.unregisterValidationRule = function (name) {
 	        this._validationRules[name] = null;
 	        return this;
 	    };
-	    ViewModalDefault.prototype.isValueValid = function (ruleName, value) {
+	    ViewModelDefault.prototype.isValueValid = function (ruleName, value) {
 	        var validationRule = ruleName ? this.getValidationRule(ruleName) : null;
 	        return validationRule ? validationRule.validate(value) : ivalidation_rule_1.ValidationResult.validResult;
 	    };
-	    return ViewModalDefault;
+	    return ViewModelDefault;
 	}(emitter_1.Emitter));
-	exports.ViewModalDefault = ViewModalDefault;
+	exports.ViewModelDefault = ViewModelDefault;
 	;
 
 
 /***/ },
-/* 157 */
+/* 158 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var each = __webpack_require__(158);
+	var each = __webpack_require__(159);
 	module.exports = api;
 
 
@@ -28225,7 +28395,7 @@ var app =
 
 
 /***/ },
-/* 158 */
+/* 159 */
 /***/ function(module, exports) {
 
 	
@@ -28253,7 +28423,7 @@ var app =
 
 
 /***/ },
-/* 159 */
+/* 160 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -28286,11 +28456,11 @@ var app =
 
 
 /***/ },
-/* 160 */
+/* 161 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var message_box_1 = __webpack_require__(131);
+	var message_box_1 = __webpack_require__(132);
 	var ChoiceDialog = (function () {
 	    function ChoiceDialog() {
 	    }
@@ -28307,11 +28477,11 @@ var app =
 
 
 /***/ },
-/* 161 */
+/* 162 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var message_box_1 = __webpack_require__(131);
+	var message_box_1 = __webpack_require__(132);
 	var ProgressDialog = (function () {
 	    function ProgressDialog() {
 	    }
@@ -28327,11 +28497,11 @@ var app =
 
 
 /***/ },
-/* 162 */
+/* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var message_box_1 = __webpack_require__(131);
+	var message_box_1 = __webpack_require__(132);
 	var ConfirmationDialog = (function () {
 	    function ConfirmationDialog() {
 	    }
@@ -28351,11 +28521,11 @@ var app =
 
 
 /***/ },
-/* 163 */
+/* 164 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var message_box_1 = __webpack_require__(131);
+	var message_box_1 = __webpack_require__(132);
 	var NotificationDialog = (function () {
 	    function NotificationDialog() {
 	    }
@@ -28371,7 +28541,7 @@ var app =
 
 
 /***/ },
-/* 164 */
+/* 165 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -28506,7 +28676,7 @@ var app =
 
 
 /***/ },
-/* 165 */
+/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -28591,7 +28761,7 @@ var app =
 
 
 /***/ },
-/* 166 */
+/* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -28642,7 +28812,7 @@ var app =
 
 
 /***/ },
-/* 167 */
+/* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -28750,8 +28920,10 @@ var app =
 	        var right = w - delta;
 	        var bottom = h - delta;
 	        var options = this.options;
+	        var southResizable = options.southWest || options.southEast || options.south;
+	        var northResizable = options.northWest || options.northEast || options.north;
 	        if (p.y >= 0 && p.y <= delta) {
-	            if (p.x >= 0 && p.x <= delta && options.northWest) {
+	            if (p.x >= 0 && p.x <= delta && northResizable) {
 	                return "nw";
 	            }
 	            else if (p.x > delta && p.x < right && options.north) {
@@ -28769,7 +28941,7 @@ var app =
 	                return "e";
 	            }
 	        }
-	        else if (p.y >= bottom && p.y <= h && options.southWest) {
+	        else if (p.y >= bottom && p.y <= h && southResizable) {
 	            if (p.x >= 0 && p.x <= delta) {
 	                return "sw";
 	            }
@@ -28843,7 +29015,7 @@ var app =
 
 
 /***/ },
-/* 168 */
+/* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -28877,7 +29049,7 @@ var app =
 	            var _this = this;
 	            this._openedMenu = value;
 	            if (value) {
-	                value.on(Events.CLOSE, function (evt) {
+	                value.on(Events.WINDOW_CLOSE, function (evt) {
 	                    _this._openedMenu = null;
 	                });
 	            }
@@ -29209,7 +29381,7 @@ var app =
 
 
 /***/ },
-/* 169 */
+/* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -29239,7 +29411,7 @@ var app =
 
 
 /***/ },
-/* 170 */
+/* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -29248,14 +29420,14 @@ var app =
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var menu_1 = __webpack_require__(168);
+	var menu_1 = __webpack_require__(169);
 	var point_1 = __webpack_require__(4);
 	var Events = __webpack_require__(8);
 	var widget_1 = __webpack_require__(21);
 	var widget_factory_1 = __webpack_require__(25);
 	var image_tile_1 = __webpack_require__(9);
 	var widget_recyclable_creator_1 = __webpack_require__(84);
-	var linear_layouter_1 = __webpack_require__(133);
+	var linear_layouter_1 = __webpack_require__(134);
 	var MenuBar = (function (_super) {
 	    __extends(MenuBar, _super);
 	    function MenuBar() {
@@ -29269,7 +29441,7 @@ var app =
 	            var _this = this;
 	            this._openedMenu = value;
 	            if (value) {
-	                value.on(Events.CLOSE, function (evt) {
+	                value.on(Events.WINDOW_CLOSE, function (evt) {
 	                    _this._openedMenu = null;
 	                });
 	            }
@@ -29464,7 +29636,7 @@ var app =
 
 
 /***/ },
-/* 171 */
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -29473,7 +29645,7 @@ var app =
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	__webpack_require__(172);
+	__webpack_require__(173);
 	var point_1 = __webpack_require__(4);
 	var Events = __webpack_require__(8);
 	var widget_1 = __webpack_require__(21);
@@ -29603,16 +29775,15 @@ var app =
 
 
 /***/ },
-/* 172 */
+/* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * @namespace Chart
 	 */
-	var Chart = __webpack_require__(173)();
+	var Chart = __webpack_require__(174)();
 
-	__webpack_require__(174)(Chart);
-	__webpack_require__(180)(Chart);
+	__webpack_require__(175)(Chart);
 	__webpack_require__(181)(Chart);
 	__webpack_require__(182)(Chart);
 	__webpack_require__(183)(Chart);
@@ -29626,41 +29797,42 @@ var app =
 	__webpack_require__(191)(Chart);
 	__webpack_require__(192)(Chart);
 	__webpack_require__(193)(Chart);
-
 	__webpack_require__(194)(Chart);
+
 	__webpack_require__(195)(Chart);
 	__webpack_require__(196)(Chart);
 	__webpack_require__(197)(Chart);
-
 	__webpack_require__(198)(Chart);
+
 	__webpack_require__(199)(Chart);
 	__webpack_require__(200)(Chart);
 	__webpack_require__(201)(Chart);
 	__webpack_require__(202)(Chart);
 	__webpack_require__(203)(Chart);
+	__webpack_require__(204)(Chart);
 
 	// Controllers must be loaded after elements
 	// See Chart.core.datasetController.dataElementType
-	__webpack_require__(311)(Chart);
 	__webpack_require__(312)(Chart);
 	__webpack_require__(313)(Chart);
 	__webpack_require__(314)(Chart);
 	__webpack_require__(315)(Chart);
 	__webpack_require__(316)(Chart);
-
 	__webpack_require__(317)(Chart);
+
 	__webpack_require__(318)(Chart);
 	__webpack_require__(319)(Chart);
 	__webpack_require__(320)(Chart);
 	__webpack_require__(321)(Chart);
 	__webpack_require__(322)(Chart);
 	__webpack_require__(323)(Chart);
+	__webpack_require__(324)(Chart);
 
 	window.Chart = module.exports = Chart;
 
 
 /***/ },
-/* 173 */
+/* 174 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -29722,14 +29894,14 @@ var app =
 
 
 /***/ },
-/* 174 */
+/* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* global window: false */
 	/* global document: false */
 	'use strict';
 
-	var color = __webpack_require__(175);
+	var color = __webpack_require__(176);
 
 	module.exports = function(Chart) {
 		// Global Chart helpers object for utility methods and classes
@@ -30761,12 +30933,12 @@ var app =
 
 
 /***/ },
-/* 175 */
+/* 176 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* MIT license */
-	var convert = __webpack_require__(176);
-	var string = __webpack_require__(178);
+	var convert = __webpack_require__(177);
+	var string = __webpack_require__(179);
 
 	var Color = function (obj) {
 		if (obj instanceof Color) {
@@ -31250,10 +31422,10 @@ var app =
 
 
 /***/ },
-/* 176 */
+/* 177 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var conversions = __webpack_require__(177);
+	var conversions = __webpack_require__(178);
 
 	var convert = function() {
 	   return new Converter();
@@ -31347,7 +31519,7 @@ var app =
 	module.exports = convert;
 
 /***/ },
-/* 177 */
+/* 178 */
 /***/ function(module, exports) {
 
 	/* MIT license */
@@ -32051,11 +32223,11 @@ var app =
 
 
 /***/ },
-/* 178 */
+/* 179 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* MIT license */
-	var colorNames = __webpack_require__(179);
+	var colorNames = __webpack_require__(180);
 
 	module.exports = {
 	   getRgba: getRgba,
@@ -32278,7 +32450,7 @@ var app =
 
 
 /***/ },
-/* 179 */
+/* 180 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -32433,7 +32605,7 @@ var app =
 	};
 
 /***/ },
-/* 180 */
+/* 181 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -32543,7 +32715,7 @@ var app =
 
 
 /***/ },
-/* 181 */
+/* 182 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -32645,7 +32817,7 @@ var app =
 
 
 /***/ },
-/* 182 */
+/* 183 */
 /***/ function(module, exports) {
 
 	/* global window: false */
@@ -32782,7 +32954,7 @@ var app =
 
 
 /***/ },
-/* 183 */
+/* 184 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -33577,7 +33749,7 @@ var app =
 
 
 /***/ },
-/* 184 */
+/* 185 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -33892,7 +34064,7 @@ var app =
 
 
 /***/ },
-/* 185 */
+/* 186 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -34237,7 +34409,7 @@ var app =
 
 
 /***/ },
-/* 186 */
+/* 187 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -34283,7 +34455,7 @@ var app =
 
 
 /***/ },
-/* 187 */
+/* 188 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -34418,7 +34590,7 @@ var app =
 
 
 /***/ },
-/* 188 */
+/* 189 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -34626,7 +34798,7 @@ var app =
 
 
 /***/ },
-/* 189 */
+/* 190 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -35383,7 +35555,7 @@ var app =
 
 
 /***/ },
-/* 190 */
+/* 191 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -35596,7 +35768,7 @@ var app =
 
 
 /***/ },
-/* 191 */
+/* 192 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -36101,7 +36273,7 @@ var app =
 
 
 /***/ },
-/* 192 */
+/* 193 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -36378,7 +36550,7 @@ var app =
 
 
 /***/ },
-/* 193 */
+/* 194 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -37261,7 +37433,7 @@ var app =
 
 
 /***/ },
-/* 194 */
+/* 195 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -37371,7 +37543,7 @@ var app =
 
 
 /***/ },
-/* 195 */
+/* 196 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -37561,7 +37733,7 @@ var app =
 
 
 /***/ },
-/* 196 */
+/* 197 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -37645,7 +37817,7 @@ var app =
 
 
 /***/ },
-/* 197 */
+/* 198 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -37827,7 +37999,7 @@ var app =
 
 
 /***/ },
-/* 198 */
+/* 199 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -37931,7 +38103,7 @@ var app =
 
 
 /***/ },
-/* 199 */
+/* 200 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -38066,7 +38238,7 @@ var app =
 
 
 /***/ },
-/* 200 */
+/* 201 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -38240,7 +38412,7 @@ var app =
 
 
 /***/ },
-/* 201 */
+/* 202 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -38472,7 +38644,7 @@ var app =
 
 
 /***/ },
-/* 202 */
+/* 203 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -38894,13 +39066,13 @@ var app =
 
 
 /***/ },
-/* 203 */
+/* 204 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* global window: false */
 	'use strict';
 
-	var moment = __webpack_require__(204);
+	var moment = __webpack_require__(205);
 	moment = typeof(moment) === 'function' ? moment : window.moment;
 
 	module.exports = function(Chart) {
@@ -39360,7 +39532,7 @@ var app =
 
 
 /***/ },
-/* 204 */
+/* 205 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {//! moment.js
@@ -41159,7 +41331,7 @@ var app =
 	                module && module.exports) {
 	            try {
 	                oldLocale = globalLocale._abbr;
-	                __webpack_require__(206)("./" + name);
+	                __webpack_require__(207)("./" + name);
 	                // because defineLocale currently also sets the global locale, we
 	                // want to undo that for lazy loaded locales
 	                locale_locales__getSetGlobalLocale(oldLocale);
@@ -43597,10 +43769,10 @@ var app =
 	    return _moment;
 
 	}));
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(205)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(206)(module)))
 
 /***/ },
-/* 205 */
+/* 206 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -43616,218 +43788,218 @@ var app =
 
 
 /***/ },
-/* 206 */
+/* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./af": 207,
-		"./af.js": 207,
-		"./ar": 208,
-		"./ar-ly": 209,
-		"./ar-ly.js": 209,
-		"./ar-ma": 210,
-		"./ar-ma.js": 210,
-		"./ar-sa": 211,
-		"./ar-sa.js": 211,
-		"./ar-tn": 212,
-		"./ar-tn.js": 212,
-		"./ar.js": 208,
-		"./az": 213,
-		"./az.js": 213,
-		"./be": 214,
-		"./be.js": 214,
-		"./bg": 215,
-		"./bg.js": 215,
-		"./bn": 216,
-		"./bn.js": 216,
-		"./bo": 217,
-		"./bo.js": 217,
-		"./br": 218,
-		"./br.js": 218,
-		"./bs": 219,
-		"./bs.js": 219,
-		"./ca": 220,
-		"./ca.js": 220,
-		"./cs": 221,
-		"./cs.js": 221,
-		"./cv": 222,
-		"./cv.js": 222,
-		"./cy": 223,
-		"./cy.js": 223,
-		"./da": 224,
-		"./da.js": 224,
-		"./de": 225,
-		"./de-at": 226,
-		"./de-at.js": 226,
-		"./de.js": 225,
-		"./dv": 227,
-		"./dv.js": 227,
-		"./el": 228,
-		"./el.js": 228,
-		"./en-au": 229,
-		"./en-au.js": 229,
-		"./en-ca": 230,
-		"./en-ca.js": 230,
-		"./en-gb": 231,
-		"./en-gb.js": 231,
-		"./en-ie": 232,
-		"./en-ie.js": 232,
-		"./en-nz": 233,
-		"./en-nz.js": 233,
-		"./eo": 234,
-		"./eo.js": 234,
-		"./es": 235,
-		"./es-do": 236,
-		"./es-do.js": 236,
-		"./es.js": 235,
-		"./et": 237,
-		"./et.js": 237,
-		"./eu": 238,
-		"./eu.js": 238,
-		"./fa": 239,
-		"./fa.js": 239,
-		"./fi": 240,
-		"./fi.js": 240,
-		"./fo": 241,
-		"./fo.js": 241,
-		"./fr": 242,
-		"./fr-ca": 243,
-		"./fr-ca.js": 243,
-		"./fr-ch": 244,
-		"./fr-ch.js": 244,
-		"./fr.js": 242,
-		"./fy": 245,
-		"./fy.js": 245,
-		"./gd": 246,
-		"./gd.js": 246,
-		"./gl": 247,
-		"./gl.js": 247,
-		"./he": 248,
-		"./he.js": 248,
-		"./hi": 249,
-		"./hi.js": 249,
-		"./hr": 250,
-		"./hr.js": 250,
-		"./hu": 251,
-		"./hu.js": 251,
-		"./hy-am": 252,
-		"./hy-am.js": 252,
-		"./id": 253,
-		"./id.js": 253,
-		"./is": 254,
-		"./is.js": 254,
-		"./it": 255,
-		"./it.js": 255,
-		"./ja": 256,
-		"./ja.js": 256,
-		"./jv": 257,
-		"./jv.js": 257,
-		"./ka": 258,
-		"./ka.js": 258,
-		"./kk": 259,
-		"./kk.js": 259,
-		"./km": 260,
-		"./km.js": 260,
-		"./ko": 261,
-		"./ko.js": 261,
-		"./ky": 262,
-		"./ky.js": 262,
-		"./lb": 263,
-		"./lb.js": 263,
-		"./lo": 264,
-		"./lo.js": 264,
-		"./lt": 265,
-		"./lt.js": 265,
-		"./lv": 266,
-		"./lv.js": 266,
-		"./me": 267,
-		"./me.js": 267,
-		"./mi": 268,
-		"./mi.js": 268,
-		"./mk": 269,
-		"./mk.js": 269,
-		"./ml": 270,
-		"./ml.js": 270,
-		"./mr": 271,
-		"./mr.js": 271,
-		"./ms": 272,
-		"./ms-my": 273,
-		"./ms-my.js": 273,
-		"./ms.js": 272,
-		"./my": 274,
-		"./my.js": 274,
-		"./nb": 275,
-		"./nb.js": 275,
-		"./ne": 276,
-		"./ne.js": 276,
-		"./nl": 277,
-		"./nl.js": 277,
-		"./nn": 278,
-		"./nn.js": 278,
-		"./pa-in": 279,
-		"./pa-in.js": 279,
-		"./pl": 280,
-		"./pl.js": 280,
-		"./pt": 281,
-		"./pt-br": 282,
-		"./pt-br.js": 282,
-		"./pt.js": 281,
-		"./ro": 283,
-		"./ro.js": 283,
-		"./ru": 284,
-		"./ru.js": 284,
-		"./se": 285,
-		"./se.js": 285,
-		"./si": 286,
-		"./si.js": 286,
-		"./sk": 287,
-		"./sk.js": 287,
-		"./sl": 288,
-		"./sl.js": 288,
-		"./sq": 289,
-		"./sq.js": 289,
-		"./sr": 290,
-		"./sr-cyrl": 291,
-		"./sr-cyrl.js": 291,
-		"./sr.js": 290,
-		"./ss": 292,
-		"./ss.js": 292,
-		"./sv": 293,
-		"./sv.js": 293,
-		"./sw": 294,
-		"./sw.js": 294,
-		"./ta": 295,
-		"./ta.js": 295,
-		"./te": 296,
-		"./te.js": 296,
-		"./th": 297,
-		"./th.js": 297,
-		"./tl-ph": 298,
-		"./tl-ph.js": 298,
-		"./tlh": 299,
-		"./tlh.js": 299,
-		"./tr": 300,
-		"./tr.js": 300,
-		"./tzl": 301,
-		"./tzl.js": 301,
-		"./tzm": 302,
-		"./tzm-latn": 303,
-		"./tzm-latn.js": 303,
-		"./tzm.js": 302,
-		"./uk": 304,
-		"./uk.js": 304,
-		"./uz": 305,
-		"./uz.js": 305,
-		"./vi": 306,
-		"./vi.js": 306,
-		"./x-pseudo": 307,
-		"./x-pseudo.js": 307,
-		"./zh-cn": 308,
-		"./zh-cn.js": 308,
-		"./zh-hk": 309,
-		"./zh-hk.js": 309,
-		"./zh-tw": 310,
-		"./zh-tw.js": 310
+		"./af": 208,
+		"./af.js": 208,
+		"./ar": 209,
+		"./ar-ly": 210,
+		"./ar-ly.js": 210,
+		"./ar-ma": 211,
+		"./ar-ma.js": 211,
+		"./ar-sa": 212,
+		"./ar-sa.js": 212,
+		"./ar-tn": 213,
+		"./ar-tn.js": 213,
+		"./ar.js": 209,
+		"./az": 214,
+		"./az.js": 214,
+		"./be": 215,
+		"./be.js": 215,
+		"./bg": 216,
+		"./bg.js": 216,
+		"./bn": 217,
+		"./bn.js": 217,
+		"./bo": 218,
+		"./bo.js": 218,
+		"./br": 219,
+		"./br.js": 219,
+		"./bs": 220,
+		"./bs.js": 220,
+		"./ca": 221,
+		"./ca.js": 221,
+		"./cs": 222,
+		"./cs.js": 222,
+		"./cv": 223,
+		"./cv.js": 223,
+		"./cy": 224,
+		"./cy.js": 224,
+		"./da": 225,
+		"./da.js": 225,
+		"./de": 226,
+		"./de-at": 227,
+		"./de-at.js": 227,
+		"./de.js": 226,
+		"./dv": 228,
+		"./dv.js": 228,
+		"./el": 229,
+		"./el.js": 229,
+		"./en-au": 230,
+		"./en-au.js": 230,
+		"./en-ca": 231,
+		"./en-ca.js": 231,
+		"./en-gb": 232,
+		"./en-gb.js": 232,
+		"./en-ie": 233,
+		"./en-ie.js": 233,
+		"./en-nz": 234,
+		"./en-nz.js": 234,
+		"./eo": 235,
+		"./eo.js": 235,
+		"./es": 236,
+		"./es-do": 237,
+		"./es-do.js": 237,
+		"./es.js": 236,
+		"./et": 238,
+		"./et.js": 238,
+		"./eu": 239,
+		"./eu.js": 239,
+		"./fa": 240,
+		"./fa.js": 240,
+		"./fi": 241,
+		"./fi.js": 241,
+		"./fo": 242,
+		"./fo.js": 242,
+		"./fr": 243,
+		"./fr-ca": 244,
+		"./fr-ca.js": 244,
+		"./fr-ch": 245,
+		"./fr-ch.js": 245,
+		"./fr.js": 243,
+		"./fy": 246,
+		"./fy.js": 246,
+		"./gd": 247,
+		"./gd.js": 247,
+		"./gl": 248,
+		"./gl.js": 248,
+		"./he": 249,
+		"./he.js": 249,
+		"./hi": 250,
+		"./hi.js": 250,
+		"./hr": 251,
+		"./hr.js": 251,
+		"./hu": 252,
+		"./hu.js": 252,
+		"./hy-am": 253,
+		"./hy-am.js": 253,
+		"./id": 254,
+		"./id.js": 254,
+		"./is": 255,
+		"./is.js": 255,
+		"./it": 256,
+		"./it.js": 256,
+		"./ja": 257,
+		"./ja.js": 257,
+		"./jv": 258,
+		"./jv.js": 258,
+		"./ka": 259,
+		"./ka.js": 259,
+		"./kk": 260,
+		"./kk.js": 260,
+		"./km": 261,
+		"./km.js": 261,
+		"./ko": 262,
+		"./ko.js": 262,
+		"./ky": 263,
+		"./ky.js": 263,
+		"./lb": 264,
+		"./lb.js": 264,
+		"./lo": 265,
+		"./lo.js": 265,
+		"./lt": 266,
+		"./lt.js": 266,
+		"./lv": 267,
+		"./lv.js": 267,
+		"./me": 268,
+		"./me.js": 268,
+		"./mi": 269,
+		"./mi.js": 269,
+		"./mk": 270,
+		"./mk.js": 270,
+		"./ml": 271,
+		"./ml.js": 271,
+		"./mr": 272,
+		"./mr.js": 272,
+		"./ms": 273,
+		"./ms-my": 274,
+		"./ms-my.js": 274,
+		"./ms.js": 273,
+		"./my": 275,
+		"./my.js": 275,
+		"./nb": 276,
+		"./nb.js": 276,
+		"./ne": 277,
+		"./ne.js": 277,
+		"./nl": 278,
+		"./nl.js": 278,
+		"./nn": 279,
+		"./nn.js": 279,
+		"./pa-in": 280,
+		"./pa-in.js": 280,
+		"./pl": 281,
+		"./pl.js": 281,
+		"./pt": 282,
+		"./pt-br": 283,
+		"./pt-br.js": 283,
+		"./pt.js": 282,
+		"./ro": 284,
+		"./ro.js": 284,
+		"./ru": 285,
+		"./ru.js": 285,
+		"./se": 286,
+		"./se.js": 286,
+		"./si": 287,
+		"./si.js": 287,
+		"./sk": 288,
+		"./sk.js": 288,
+		"./sl": 289,
+		"./sl.js": 289,
+		"./sq": 290,
+		"./sq.js": 290,
+		"./sr": 291,
+		"./sr-cyrl": 292,
+		"./sr-cyrl.js": 292,
+		"./sr.js": 291,
+		"./ss": 293,
+		"./ss.js": 293,
+		"./sv": 294,
+		"./sv.js": 294,
+		"./sw": 295,
+		"./sw.js": 295,
+		"./ta": 296,
+		"./ta.js": 296,
+		"./te": 297,
+		"./te.js": 297,
+		"./th": 298,
+		"./th.js": 298,
+		"./tl-ph": 299,
+		"./tl-ph.js": 299,
+		"./tlh": 300,
+		"./tlh.js": 300,
+		"./tr": 301,
+		"./tr.js": 301,
+		"./tzl": 302,
+		"./tzl.js": 302,
+		"./tzm": 303,
+		"./tzm-latn": 304,
+		"./tzm-latn.js": 304,
+		"./tzm.js": 303,
+		"./uk": 305,
+		"./uk.js": 305,
+		"./uz": 306,
+		"./uz.js": 306,
+		"./vi": 307,
+		"./vi.js": 307,
+		"./x-pseudo": 308,
+		"./x-pseudo.js": 308,
+		"./zh-cn": 309,
+		"./zh-cn.js": 309,
+		"./zh-hk": 310,
+		"./zh-hk.js": 310,
+		"./zh-tw": 311,
+		"./zh-tw.js": 311
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -43840,11 +44012,11 @@ var app =
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 206;
+	webpackContext.id = 207;
 
 
 /***/ },
-/* 207 */
+/* 208 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -43852,7 +44024,7 @@ var app =
 	//! author : Werner Mollentze : https://github.com/wernerm
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -43921,7 +44093,7 @@ var app =
 	}));
 
 /***/ },
-/* 208 */
+/* 209 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -43931,7 +44103,7 @@ var app =
 	//! author : forabi https://github.com/forabi
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -44062,7 +44234,7 @@ var app =
 	}));
 
 /***/ },
-/* 209 */
+/* 210 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -44070,7 +44242,7 @@ var app =
 	//! author : Ali Hmer: https://github.com/kikoanis
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -44188,7 +44360,7 @@ var app =
 	}));
 
 /***/ },
-/* 210 */
+/* 211 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -44197,7 +44369,7 @@ var app =
 	//! author : Abdel Said : https://github.com/abdelsaid
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -44252,7 +44424,7 @@ var app =
 	}));
 
 /***/ },
-/* 211 */
+/* 212 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -44260,7 +44432,7 @@ var app =
 	//! author : Suhail Alkowaileet : https://github.com/xsoh
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -44360,7 +44532,7 @@ var app =
 	}));
 
 /***/ },
-/* 212 */
+/* 213 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -44368,7 +44540,7 @@ var app =
 	//! author : Nader Toukabri : https://github.com/naderio
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -44423,7 +44595,7 @@ var app =
 	}));
 
 /***/ },
-/* 213 */
+/* 214 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -44431,7 +44603,7 @@ var app =
 	//! author : topchiyev : https://github.com/topchiyev
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -44532,7 +44704,7 @@ var app =
 	}));
 
 /***/ },
-/* 214 */
+/* 215 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -44542,7 +44714,7 @@ var app =
 	//! Author : Menelion Elensúle : https://github.com/Oire
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -44670,7 +44842,7 @@ var app =
 	}));
 
 /***/ },
-/* 215 */
+/* 216 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -44678,7 +44850,7 @@ var app =
 	//! author : Krasen Borisov : https://github.com/kraz
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -44764,7 +44936,7 @@ var app =
 	}));
 
 /***/ },
-/* 216 */
+/* 217 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -44772,7 +44944,7 @@ var app =
 	//! author : Kaushik Gandhi : https://github.com/kaushikgandhi
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -44887,7 +45059,7 @@ var app =
 	}));
 
 /***/ },
-/* 217 */
+/* 218 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -44895,7 +45067,7 @@ var app =
 	//! author : Thupten N. Chakrishar : https://github.com/vajradog
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -45010,7 +45182,7 @@ var app =
 	}));
 
 /***/ },
-/* 218 */
+/* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -45018,7 +45190,7 @@ var app =
 	//! author : Jean-Baptiste Le Duigou : https://github.com/jbleduigou
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -45122,7 +45294,7 @@ var app =
 	}));
 
 /***/ },
-/* 219 */
+/* 220 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -45131,7 +45303,7 @@ var app =
 	//! based on (hr) translation by Bojan Marković
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -45269,7 +45441,7 @@ var app =
 	}));
 
 /***/ },
-/* 220 */
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -45277,7 +45449,7 @@ var app =
 	//! author : Juan G. Hurtado : https://github.com/juanghurtado
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -45354,7 +45526,7 @@ var app =
 	}));
 
 /***/ },
-/* 221 */
+/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -45362,7 +45534,7 @@ var app =
 	//! author : petrbela : https://github.com/petrbela
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -45530,7 +45702,7 @@ var app =
 	}));
 
 /***/ },
-/* 222 */
+/* 223 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -45538,7 +45710,7 @@ var app =
 	//! author : Anatoly Mironov : https://github.com/mirontoli
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -45597,7 +45769,7 @@ var app =
 	}));
 
 /***/ },
-/* 223 */
+/* 224 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -45606,7 +45778,7 @@ var app =
 	//! author : https://github.com/ryangreaves
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -45682,7 +45854,7 @@ var app =
 	}));
 
 /***/ },
-/* 224 */
+/* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -45690,7 +45862,7 @@ var app =
 	//! author : Ulrik Nielsen : https://github.com/mrbase
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -45746,7 +45918,7 @@ var app =
 	}));
 
 /***/ },
-/* 225 */
+/* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -45756,7 +45928,7 @@ var app =
 	//! author : Mikolaj Dadela : https://github.com/mik01aj
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -45828,7 +46000,7 @@ var app =
 	}));
 
 /***/ },
-/* 226 */
+/* 227 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -45839,7 +46011,7 @@ var app =
 	//! author : Mikolaj Dadela : https://github.com/mik01aj
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -45911,7 +46083,7 @@ var app =
 	}));
 
 /***/ },
-/* 227 */
+/* 228 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -45919,7 +46091,7 @@ var app =
 	//! author : Jawish Hameed : https://github.com/jawish
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -46014,7 +46186,7 @@ var app =
 	}));
 
 /***/ },
-/* 228 */
+/* 229 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -46022,7 +46194,7 @@ var app =
 	//! author : Aggelos Karalias : https://github.com/mehiel
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -46116,7 +46288,7 @@ var app =
 	}));
 
 /***/ },
-/* 229 */
+/* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -46124,7 +46296,7 @@ var app =
 	//! author : Jared Morse : https://github.com/jarcoal
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -46187,7 +46359,7 @@ var app =
 	}));
 
 /***/ },
-/* 230 */
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -46195,7 +46367,7 @@ var app =
 	//! author : Jonathan Abourbih : https://github.com/jonbca
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -46254,7 +46426,7 @@ var app =
 	}));
 
 /***/ },
-/* 231 */
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -46262,7 +46434,7 @@ var app =
 	//! author : Chris Gedrim : https://github.com/chrisgedrim
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -46325,7 +46497,7 @@ var app =
 	}));
 
 /***/ },
-/* 232 */
+/* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -46333,7 +46505,7 @@ var app =
 	//! author : Chris Cartlidge : https://github.com/chriscartlidge
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -46396,7 +46568,7 @@ var app =
 	}));
 
 /***/ },
-/* 233 */
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -46404,7 +46576,7 @@ var app =
 	//! author : Luke McGregor : https://github.com/lukemcgregor
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -46467,7 +46639,7 @@ var app =
 	}));
 
 /***/ },
-/* 234 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -46477,7 +46649,7 @@ var app =
 	//!          Se ne, bonvolu korekti kaj avizi min por ke mi povas lerni!
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -46544,7 +46716,7 @@ var app =
 	}));
 
 /***/ },
-/* 235 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -46552,7 +46724,7 @@ var app =
 	//! author : Julio Napurí : https://github.com/julionc
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -46629,14 +46801,14 @@ var app =
 	}));
 
 /***/ },
-/* 236 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
 	//! locale : Spanish (Dominican Republic) [es-do]
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -46713,7 +46885,7 @@ var app =
 	}));
 
 /***/ },
-/* 237 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -46722,7 +46894,7 @@ var app =
 	//! improvements : Illimar Tambek : https://github.com/ragulka
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -46797,7 +46969,7 @@ var app =
 	}));
 
 /***/ },
-/* 238 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -46805,7 +46977,7 @@ var app =
 	//! author : Eneko Illarramendi : https://github.com/eillarra
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -46867,7 +47039,7 @@ var app =
 	}));
 
 /***/ },
-/* 239 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -46875,7 +47047,7 @@ var app =
 	//! author : Ebrahim Byagowi : https://github.com/ebraminio
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -46977,7 +47149,7 @@ var app =
 	}));
 
 /***/ },
-/* 240 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -46985,7 +47157,7 @@ var app =
 	//! author : Tarmo Aidantausta : https://github.com/bleadof
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -47088,7 +47260,7 @@ var app =
 	}));
 
 /***/ },
-/* 241 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -47096,7 +47268,7 @@ var app =
 	//! author : Ragnar Johannesen : https://github.com/ragnar123
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -47152,7 +47324,7 @@ var app =
 	}));
 
 /***/ },
-/* 242 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -47160,7 +47332,7 @@ var app =
 	//! author : John Fischer : https://github.com/jfroffice
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -47220,7 +47392,7 @@ var app =
 	}));
 
 /***/ },
-/* 243 */
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -47228,7 +47400,7 @@ var app =
 	//! author : Jonathan Abourbih : https://github.com/jonbca
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -47284,7 +47456,7 @@ var app =
 	}));
 
 /***/ },
-/* 244 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -47292,7 +47464,7 @@ var app =
 	//! author : Gaspard Bucher : https://github.com/gaspard
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -47352,7 +47524,7 @@ var app =
 	}));
 
 /***/ },
-/* 245 */
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -47360,7 +47532,7 @@ var app =
 	//! author : Robin van der Vliet : https://github.com/robin0van0der0v
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -47429,7 +47601,7 @@ var app =
 	}));
 
 /***/ },
-/* 246 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -47437,7 +47609,7 @@ var app =
 	//! author : Jon Ashdown : https://github.com/jonashdown
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -47509,7 +47681,7 @@ var app =
 	}));
 
 /***/ },
-/* 247 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -47517,7 +47689,7 @@ var app =
 	//! author : Juan G. Hurtado : https://github.com/juanghurtado
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -47590,7 +47762,7 @@ var app =
 	}));
 
 /***/ },
-/* 248 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -47600,7 +47772,7 @@ var app =
 	//! author : Tal Ater : https://github.com/TalAter
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -47693,7 +47865,7 @@ var app =
 	}));
 
 /***/ },
-/* 249 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -47701,7 +47873,7 @@ var app =
 	//! author : Mayank Singhal : https://github.com/mayanksinghal
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -47821,7 +47993,7 @@ var app =
 	}));
 
 /***/ },
-/* 250 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -47829,7 +48001,7 @@ var app =
 	//! author : Bojan Marković : https://github.com/bmarkovic
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -47970,7 +48142,7 @@ var app =
 	}));
 
 /***/ },
-/* 251 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -47978,7 +48150,7 @@ var app =
 	//! author : Adam Brunner : https://github.com/adambrunner
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -48083,7 +48255,7 @@ var app =
 	}));
 
 /***/ },
-/* 252 */
+/* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -48091,7 +48263,7 @@ var app =
 	//! author : Armendarabyan : https://github.com/armendarabyan
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -48182,7 +48354,7 @@ var app =
 	}));
 
 /***/ },
-/* 253 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -48191,7 +48363,7 @@ var app =
 	//! reference: http://id.wikisource.org/wiki/Pedoman_Umum_Ejaan_Bahasa_Indonesia_yang_Disempurnakan
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -48269,7 +48441,7 @@ var app =
 	}));
 
 /***/ },
-/* 254 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -48277,7 +48449,7 @@ var app =
 	//! author : Hinrik Örn Sigurðsson : https://github.com/hinrik
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -48400,7 +48572,7 @@ var app =
 	}));
 
 /***/ },
-/* 255 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -48409,7 +48581,7 @@ var app =
 	//! author: Mattia Larentis: https://github.com/nostalgiaz
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -48474,7 +48646,7 @@ var app =
 	}));
 
 /***/ },
-/* 256 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -48482,7 +48654,7 @@ var app =
 	//! author : LI Long : https://github.com/baryon
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -48554,7 +48726,7 @@ var app =
 	}));
 
 /***/ },
-/* 257 */
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -48563,7 +48735,7 @@ var app =
 	//! reference: http://jv.wikipedia.org/wiki/Basa_Jawa
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -48641,7 +48813,7 @@ var app =
 	}));
 
 /***/ },
-/* 258 */
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -48649,7 +48821,7 @@ var app =
 	//! author : Irakli Janiashvili : https://github.com/irakli-janiashvili
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -48734,7 +48906,7 @@ var app =
 	}));
 
 /***/ },
-/* 259 */
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -48742,7 +48914,7 @@ var app =
 	//! authors : Nurlan Rakhimzhanov : https://github.com/nurlan
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -48825,7 +48997,7 @@ var app =
 	}));
 
 /***/ },
-/* 260 */
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -48833,7 +49005,7 @@ var app =
 	//! author : Kruy Vanna : https://github.com/kruyvanna
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -48887,7 +49059,7 @@ var app =
 	}));
 
 /***/ },
-/* 261 */
+/* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -48896,7 +49068,7 @@ var app =
 	//! author : Jeeeyul Lee <jeeeyul@gmail.com>
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -48956,7 +49128,7 @@ var app =
 	}));
 
 /***/ },
-/* 262 */
+/* 263 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -48964,7 +49136,7 @@ var app =
 	//! author : Chyngyz Arystan uulu : https://github.com/chyngyz
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -49048,7 +49220,7 @@ var app =
 	}));
 
 /***/ },
-/* 263 */
+/* 264 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -49057,7 +49229,7 @@ var app =
 	//! author : David Raison : https://github.com/kwisatz
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -49189,7 +49361,7 @@ var app =
 	}));
 
 /***/ },
-/* 264 */
+/* 265 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -49197,7 +49369,7 @@ var app =
 	//! author : Ryan Hart : https://github.com/ryanhart2
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -49263,7 +49435,7 @@ var app =
 	}));
 
 /***/ },
-/* 265 */
+/* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -49271,7 +49443,7 @@ var app =
 	//! author : Mindaugas Mozūras : https://github.com/mmozuras
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -49384,7 +49556,7 @@ var app =
 	}));
 
 /***/ },
-/* 266 */
+/* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -49393,7 +49565,7 @@ var app =
 	//! author : Jānis Elmeris : https://github.com/JanisE
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -49485,7 +49657,7 @@ var app =
 	}));
 
 /***/ },
-/* 267 */
+/* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -49493,7 +49665,7 @@ var app =
 	//! author : Miodrag Nikač <miodrag@restartit.me> : https://github.com/miodragnikac
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -49600,7 +49772,7 @@ var app =
 	}));
 
 /***/ },
-/* 268 */
+/* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -49608,7 +49780,7 @@ var app =
 	//! author : John Corrigan <robbiecloset@gmail.com> : https://github.com/johnideal
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -49668,7 +49840,7 @@ var app =
 	}));
 
 /***/ },
-/* 269 */
+/* 270 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -49676,7 +49848,7 @@ var app =
 	//! author : Borislav Mickov : https://github.com/B0k0
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -49762,7 +49934,7 @@ var app =
 	}));
 
 /***/ },
-/* 270 */
+/* 271 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -49770,7 +49942,7 @@ var app =
 	//! author : Floyd Pink : https://github.com/floydpink
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -49847,7 +50019,7 @@ var app =
 	}));
 
 /***/ },
-/* 271 */
+/* 272 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -49856,7 +50028,7 @@ var app =
 	//! author : Vivek Athalye : https://github.com/vnathalye
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -50010,7 +50182,7 @@ var app =
 	}));
 
 /***/ },
-/* 272 */
+/* 273 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -50018,7 +50190,7 @@ var app =
 	//! author : Weldan Jamili : https://github.com/weldan
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -50096,7 +50268,7 @@ var app =
 	}));
 
 /***/ },
-/* 273 */
+/* 274 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -50105,7 +50277,7 @@ var app =
 	//! author : Weldan Jamili : https://github.com/weldan
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -50183,7 +50355,7 @@ var app =
 	}));
 
 /***/ },
-/* 274 */
+/* 275 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -50193,7 +50365,7 @@ var app =
 	//! author : Tin Aung Lin : https://github.com/thanyawzinmin
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -50282,7 +50454,7 @@ var app =
 	}));
 
 /***/ },
-/* 275 */
+/* 276 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -50291,7 +50463,7 @@ var app =
 	//!           Sigurd Gartmann : https://github.com/sigurdga
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -50349,7 +50521,7 @@ var app =
 	}));
 
 /***/ },
-/* 276 */
+/* 277 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -50357,7 +50529,7 @@ var app =
 	//! author : suvash : https://github.com/suvash
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -50476,7 +50648,7 @@ var app =
 	}));
 
 /***/ },
-/* 277 */
+/* 278 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -50485,7 +50657,7 @@ var app =
 	//! author : Jacob Middag : https://github.com/middagj
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -50566,7 +50738,7 @@ var app =
 	}));
 
 /***/ },
-/* 278 */
+/* 279 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -50574,7 +50746,7 @@ var app =
 	//! author : https://github.com/mechuwind
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -50630,7 +50802,7 @@ var app =
 	}));
 
 /***/ },
-/* 279 */
+/* 280 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -50638,7 +50810,7 @@ var app =
 	//! author : Harpreet Singh : https://github.com/harpreetkhalsagtbit
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -50758,7 +50930,7 @@ var app =
 	}));
 
 /***/ },
-/* 280 */
+/* 281 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -50766,7 +50938,7 @@ var app =
 	//! author : Rafal Hirsz : https://github.com/evoL
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -50867,7 +51039,7 @@ var app =
 	}));
 
 /***/ },
-/* 281 */
+/* 282 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -50875,7 +51047,7 @@ var app =
 	//! author : Jefferson : https://github.com/jalex79
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -50936,7 +51108,7 @@ var app =
 	}));
 
 /***/ },
-/* 282 */
+/* 283 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -50944,7 +51116,7 @@ var app =
 	//! author : Caio Ribeiro Pereira : https://github.com/caio-ribeiro-pereira
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -51001,7 +51173,7 @@ var app =
 	}));
 
 /***/ },
-/* 283 */
+/* 284 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -51010,7 +51182,7 @@ var app =
 	//! author : Valentin Agachi : https://github.com/avaly
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -51080,7 +51252,7 @@ var app =
 	}));
 
 /***/ },
-/* 284 */
+/* 285 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -51090,7 +51262,7 @@ var app =
 	//! author : Коренберг Марк : https://github.com/socketpair
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -51267,7 +51439,7 @@ var app =
 	}));
 
 /***/ },
-/* 285 */
+/* 286 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -51275,7 +51447,7 @@ var app =
 	//! authors : Bård Rolstad Henriksen : https://github.com/karamell
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -51332,7 +51504,7 @@ var app =
 	}));
 
 /***/ },
-/* 286 */
+/* 287 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -51340,7 +51512,7 @@ var app =
 	//! author : Sampath Sitinamaluwa : https://github.com/sampathsris
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -51407,7 +51579,7 @@ var app =
 	}));
 
 /***/ },
-/* 287 */
+/* 288 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -51416,7 +51588,7 @@ var app =
 	//! based on work of petrbela : https://github.com/petrbela
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -51561,7 +51733,7 @@ var app =
 	}));
 
 /***/ },
-/* 288 */
+/* 289 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -51569,7 +51741,7 @@ var app =
 	//! author : Robert Sedovšek : https://github.com/sedovsek
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -51727,7 +51899,7 @@ var app =
 	}));
 
 /***/ },
-/* 289 */
+/* 290 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -51737,7 +51909,7 @@ var app =
 	//! author : Oerd Cukalla : https://github.com/oerd
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -51801,7 +51973,7 @@ var app =
 	}));
 
 /***/ },
-/* 290 */
+/* 291 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -51809,7 +51981,7 @@ var app =
 	//! author : Milan Janačković<milanjanackovic@gmail.com> : https://github.com/milan-j
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -51915,7 +52087,7 @@ var app =
 	}));
 
 /***/ },
-/* 291 */
+/* 292 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -51923,7 +52095,7 @@ var app =
 	//! author : Milan Janačković<milanjanackovic@gmail.com> : https://github.com/milan-j
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -52029,7 +52201,7 @@ var app =
 	}));
 
 /***/ },
-/* 292 */
+/* 293 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -52037,7 +52209,7 @@ var app =
 	//! author : Nicolai Davies<mail@nicolai.io> : https://github.com/nicolaidavies
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -52122,7 +52294,7 @@ var app =
 	}));
 
 /***/ },
-/* 293 */
+/* 294 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -52130,7 +52302,7 @@ var app =
 	//! author : Jens Alm : https://github.com/ulmus
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -52195,7 +52367,7 @@ var app =
 	}));
 
 /***/ },
-/* 294 */
+/* 295 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -52203,7 +52375,7 @@ var app =
 	//! author : Fahad Kassim : https://github.com/fadsel
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -52258,7 +52430,7 @@ var app =
 	}));
 
 /***/ },
-/* 295 */
+/* 296 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -52266,7 +52438,7 @@ var app =
 	//! author : Arjunkumar Krishnamoorthy : https://github.com/tk120404
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -52391,7 +52563,7 @@ var app =
 	}));
 
 /***/ },
-/* 296 */
+/* 297 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -52399,7 +52571,7 @@ var app =
 	//! author : Krishna Chaitanya Thota : https://github.com/kcthota
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -52484,7 +52656,7 @@ var app =
 	}));
 
 /***/ },
-/* 297 */
+/* 298 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -52492,7 +52664,7 @@ var app =
 	//! author : Kridsada Thanabulpong : https://github.com/sirn
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -52555,7 +52727,7 @@ var app =
 	}));
 
 /***/ },
-/* 298 */
+/* 299 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -52563,7 +52735,7 @@ var app =
 	//! author : Dan Hagman : https://github.com/hagmandan
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -52621,7 +52793,7 @@ var app =
 	}));
 
 /***/ },
-/* 299 */
+/* 300 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -52629,7 +52801,7 @@ var app =
 	//! author : Dominika Kruk : https://github.com/amaranthrose
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -52745,7 +52917,7 @@ var app =
 	}));
 
 /***/ },
-/* 300 */
+/* 301 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -52754,7 +52926,7 @@ var app =
 	//!           Burak Yiğit Kaya: https://github.com/BYK
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -52839,7 +53011,7 @@ var app =
 	}));
 
 /***/ },
-/* 301 */
+/* 302 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -52848,7 +53020,7 @@ var app =
 	//! author : Iustì Canun
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -52934,7 +53106,7 @@ var app =
 	}));
 
 /***/ },
-/* 302 */
+/* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -52942,7 +53114,7 @@ var app =
 	//! author : Abdel Said : https://github.com/abdelsaid
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -52996,7 +53168,7 @@ var app =
 	}));
 
 /***/ },
-/* 303 */
+/* 304 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -53004,7 +53176,7 @@ var app =
 	//! author : Abdel Said : https://github.com/abdelsaid
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -53058,7 +53230,7 @@ var app =
 	}));
 
 /***/ },
-/* 304 */
+/* 305 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -53067,7 +53239,7 @@ var app =
 	//! Author : Menelion Elensúle : https://github.com/Oire
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -53208,7 +53380,7 @@ var app =
 	}));
 
 /***/ },
-/* 305 */
+/* 306 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -53216,7 +53388,7 @@ var app =
 	//! author : Sardor Muminov : https://github.com/muminoff
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -53270,7 +53442,7 @@ var app =
 	}));
 
 /***/ },
-/* 306 */
+/* 307 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -53278,7 +53450,7 @@ var app =
 	//! author : Bang Nguyen : https://github.com/bangnk
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -53353,7 +53525,7 @@ var app =
 	}));
 
 /***/ },
-/* 307 */
+/* 308 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -53361,7 +53533,7 @@ var app =
 	//! author : Andrew Hood : https://github.com/andrewhood125
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -53425,7 +53597,7 @@ var app =
 	}));
 
 /***/ },
-/* 308 */
+/* 309 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -53434,7 +53606,7 @@ var app =
 	//! author : Zeno Zeng : https://github.com/zenozeng
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -53556,7 +53728,7 @@ var app =
 	}));
 
 /***/ },
-/* 309 */
+/* 310 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -53566,7 +53738,7 @@ var app =
 	//! author : Konstantin : https://github.com/skfd
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -53665,7 +53837,7 @@ var app =
 	}));
 
 /***/ },
-/* 310 */
+/* 311 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//! moment.js locale configuration
@@ -53674,7 +53846,7 @@ var app =
 	//! author : Chris Lam : https://github.com/hehachris
 
 	;(function (global, factory) {
-	    true ? factory(__webpack_require__(204)) :
+	    true ? factory(__webpack_require__(205)) :
 	   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
 	   factory(global.moment)
 	}(this, function (moment) { 'use strict';
@@ -53773,7 +53945,7 @@ var app =
 	}));
 
 /***/ },
-/* 311 */
+/* 312 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -54329,7 +54501,7 @@ var app =
 
 
 /***/ },
-/* 312 */
+/* 313 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -54457,7 +54629,7 @@ var app =
 
 
 /***/ },
-/* 313 */
+/* 314 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -54766,7 +54938,7 @@ var app =
 
 
 /***/ },
-/* 314 */
+/* 315 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -55109,7 +55281,7 @@ var app =
 
 
 /***/ },
-/* 315 */
+/* 316 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -55330,7 +55502,7 @@ var app =
 
 
 /***/ },
-/* 316 */
+/* 317 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -55517,7 +55689,7 @@ var app =
 
 
 /***/ },
-/* 317 */
+/* 318 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -55534,7 +55706,7 @@ var app =
 
 
 /***/ },
-/* 318 */
+/* 319 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -55550,7 +55722,7 @@ var app =
 
 
 /***/ },
-/* 319 */
+/* 320 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -55567,7 +55739,7 @@ var app =
 
 
 /***/ },
-/* 320 */
+/* 321 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -55584,7 +55756,7 @@ var app =
 
 
 /***/ },
-/* 321 */
+/* 322 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -55601,7 +55773,7 @@ var app =
 
 
 /***/ },
-/* 322 */
+/* 323 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -55618,7 +55790,7 @@ var app =
 
 
 /***/ },
-/* 323 */
+/* 324 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -55671,7 +55843,7 @@ var app =
 
 
 /***/ },
-/* 324 */
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -55683,8 +55855,8 @@ var app =
 	var widget_1 = __webpack_require__(21);
 	var widget_factory_1 = __webpack_require__(25);
 	var widget_recyclable_creator_1 = __webpack_require__(84);
-	var title_content_1 = __webpack_require__(325);
-	var collapsable_title_1 = __webpack_require__(326);
+	var title_content_1 = __webpack_require__(326);
+	var collapsable_title_1 = __webpack_require__(327);
 	/**
 	 * 手风琴控件。它有多个页面，在每一时刻只展开一个。
 	 */
@@ -55787,7 +55959,7 @@ var app =
 
 
 /***/ },
-/* 325 */
+/* 326 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -56018,7 +56190,7 @@ var app =
 
 
 /***/ },
-/* 326 */
+/* 327 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -56104,7 +56276,7 @@ var app =
 
 
 /***/ },
-/* 327 */
+/* 328 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -56413,7 +56585,7 @@ var app =
 
 
 /***/ },
-/* 328 */
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -56424,9 +56596,9 @@ var app =
 	};
 	var scroll_view_1 = __webpack_require__(102);
 	var widget_factory_1 = __webpack_require__(25);
-	var title_content_1 = __webpack_require__(325);
+	var title_content_1 = __webpack_require__(326);
 	var widget_recyclable_creator_1 = __webpack_require__(84);
-	var collapsable_title_1 = __webpack_require__(326);
+	var collapsable_title_1 = __webpack_require__(327);
 	/**
 	 * 管理多个页面，每个页面可以展开或折叠。
 	 */
@@ -56524,7 +56696,7 @@ var app =
 
 
 /***/ },
-/* 329 */
+/* 330 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -56549,7 +56721,7 @@ var app =
 
 
 /***/ },
-/* 330 */
+/* 331 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -56559,24 +56731,25 @@ var app =
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var Events = __webpack_require__(8);
-	var delegate_command_1 = __webpack_require__(329);
-	var ivalidation_rule_1 = __webpack_require__(159);
-	var view_modal_default_1 = __webpack_require__(156);
+	var delegate_command_1 = __webpack_require__(330);
+	var ivalidation_rule_1 = __webpack_require__(160);
+	var iview_model_1 = __webpack_require__(83);
+	var view_model_default_1 = __webpack_require__(157);
 	/**
-	 * 集合ViewModal。delProp/getProp/setProp操作当前的项。
+	 * 集合ViewModel。delProp/getProp/setProp操作当前的项。
 	 */
-	var CollectionViewModal = (function (_super) {
-	    __extends(CollectionViewModal, _super);
-	    function CollectionViewModal(data) {
+	var CollectionViewModel = (function (_super) {
+	    __extends(CollectionViewModel, _super);
+	    function CollectionViewModel(data) {
 	        _super.call(this, data);
 	        this.isCollection = true;
 	        this.filters = {};
 	        this.comparators = {};
 	        this._current = 0;
 	        this._collection = data;
-	        this.needUpdateViewModalItems = true;
+	        this.needUpdateViewModelItems = true;
 	    }
-	    Object.defineProperty(CollectionViewModal.prototype, "collection", {
+	    Object.defineProperty(CollectionViewModel.prototype, "collection", {
 	        /**
 	         * 原始的数据。
 	         */
@@ -56586,7 +56759,7 @@ var app =
 	        enumerable: true,
 	        configurable: true
 	    });
-	    Object.defineProperty(CollectionViewModal.prototype, "current", {
+	    Object.defineProperty(CollectionViewModel.prototype, "current", {
 	        get: function () {
 	            return this._current;
 	        },
@@ -56594,16 +56767,16 @@ var app =
 	         * 当前数据项的序号。
 	         */
 	        set: function (value) {
-	            var viewModalItems = this.viewModalItems;
-	            this._current = Math.min(viewModalItems.length - 1, Math.max(0, value));
+	            var viewModelItems = this.viewModelItems;
+	            this._current = Math.min(viewModelItems.length - 1, Math.max(0, value));
 	            this.notifyChange(Events.PROP_CHANGE, "/", value);
 	        },
 	        enumerable: true,
 	        configurable: true
 	    });
-	    Object.defineProperty(CollectionViewModal.prototype, "total", {
+	    Object.defineProperty(CollectionViewModel.prototype, "total", {
 	        get: function () {
-	            return this.viewModalItems.length;
+	            return this.viewModelItems.length;
 	        },
 	        /**
 	         * 过滤之后总的项数。
@@ -56613,40 +56786,40 @@ var app =
 	        enumerable: true,
 	        configurable: true
 	    });
-	    Object.defineProperty(CollectionViewModal.prototype, "viewModalItems", {
+	    Object.defineProperty(CollectionViewModel.prototype, "viewModelItems", {
 	        /**
-	         * 子项目的ViewModal
+	         * 子项目的ViewModel
 	         */
 	        get: function () {
-	            if (this.needUpdateViewModalItems) {
-	                this.updateViewModalItems();
+	            if (this.needUpdateViewModelItems) {
+	                this.updateViewModelItems();
 	            }
-	            return this._viewModalItems;
+	            return this._viewModelItems;
 	        },
 	        enumerable: true,
 	        configurable: true
 	    });
 	    /*
-	     * 对于属性操作，都是针对当前项的ViewModal的操作。
+	     * 对于属性操作，都是针对当前项的ViewModel的操作。
 	     */
-	    CollectionViewModal.prototype.getProp = function (path, converterName) {
-	        var vm = this.currentViewModal;
+	    CollectionViewModel.prototype.getProp = function (path, converterName) {
+	        var vm = this.currentViewModel;
 	        return vm ? vm.getProp(path, converterName) : null;
 	    };
-	    CollectionViewModal.prototype.delProp = function (path) {
-	        var vm = this.currentViewModal;
+	    CollectionViewModel.prototype.delProp = function (path) {
+	        var vm = this.currentViewModel;
 	        return vm ? vm.delProp(path) : this;
 	    };
-	    CollectionViewModal.prototype.setProp = function (path, value, converterName, validationRule) {
-	        var vm = this.currentViewModal;
+	    CollectionViewModel.prototype.setProp = function (path, value, converterName, validationRule) {
+	        var vm = this.currentViewModel;
 	        return vm ? vm.setProp(path, value, converterName, validationRule) : ivalidation_rule_1.ValidationResult.invalidResult;
 	    };
-	    Object.defineProperty(CollectionViewModal.prototype, "currentViewModal", {
+	    Object.defineProperty(CollectionViewModel.prototype, "currentViewModel", {
 	        /**
-	         * 当前项的ViewModal
+	         * 当前项的ViewModel
 	         */
 	        get: function () {
-	            return this.viewModalItems[this._current];
+	            return this.viewModelItems[this._current];
 	        },
 	        enumerable: true,
 	        configurable: true
@@ -56654,39 +56827,39 @@ var app =
 	    /**
 	     * 注册子项的增加删除的变化事件。
 	     */
-	    CollectionViewModal.prototype.onItemsChange = function (callback) {
+	    CollectionViewModel.prototype.onItemsChange = function (callback) {
 	        this.on(Events.ITEMS_CHANGE, callback);
 	        return this;
 	    };
 	    /**
 	     * 注销子项的增加删除的变化事件。
 	     */
-	    CollectionViewModal.prototype.offItemsChange = function (callback) {
+	    CollectionViewModel.prototype.offItemsChange = function (callback) {
 	        this.off(Events.ITEMS_CHANGE, callback);
 	        return this;
 	    };
 	    /**
 	     * 增加一个数据项。
 	     */
-	    CollectionViewModal.prototype.addItem = function (data, index) {
+	    CollectionViewModel.prototype.addItem = function (data, index) {
 	        var n = this._collection.length;
 	        var index = index < n ? index : n;
 	        this._collection.splice(index, 0, data);
-	        this.updateViewModalItems(true);
+	        this.updateViewModelItems(true);
 	        return this;
 	    };
 	    /**
 	     * 删除一个数据项。
 	     */
-	    CollectionViewModal.prototype.removeItem = function (index) {
+	    CollectionViewModel.prototype.removeItem = function (index) {
 	        this._collection.splice(index, 1);
-	        this.updateViewModalItems(true);
+	        this.updateViewModelItems(true);
 	        return this;
 	    };
 	    /**
 	     * 删除指定规则的数据项。
 	     */
-	    CollectionViewModal.prototype.removeItems = function (func) {
+	    CollectionViewModel.prototype.removeItems = function (func) {
 	        var _this = this;
 	        var collection = this._collection.filter(function (item, index, arr) {
 	            return !func(item, index, arr);
@@ -56695,31 +56868,31 @@ var app =
 	        collection.forEach(function (item) {
 	            _this._collection.push(item);
 	        });
-	        this.updateViewModalItems(true);
+	        this.updateViewModelItems(true);
 	        return this;
 	    };
 	    /**
 	     * 是否存在指定条件的项。
 	     */
-	    CollectionViewModal.prototype.hasItems = function (func, filtered) {
+	    CollectionViewModel.prototype.hasItems = function (func, filtered) {
 	        var arr = filtered ? this._filteredSortedCollection : this._collection;
 	        return arr.some(func);
 	    };
 	    /**
-	     * 获取指定序号的子ViewModal
+	     * 获取指定序号的子ViewModel
 	     */
-	    CollectionViewModal.prototype.getItemViewModal = function (index) {
+	    CollectionViewModel.prototype.getItemViewModel = function (index) {
 	        var i = (index >= 0 && index < this.total) ? index : this._current;
-	        return this.viewModalItems[i];
+	        return this.viewModelItems[i];
 	    };
-	    CollectionViewModal.prototype.getItemData = function (index) {
+	    CollectionViewModel.prototype.getItemData = function (index) {
 	        var i = (index >= 0 && index < this.total) ? index : this._current;
 	        return this._filteredSortedCollection[i];
 	    };
 	    /*
 	     * 获取过滤并排序之后的集合。
 	     */
-	    CollectionViewModal.prototype.getFilteredSortedCollection = function () {
+	    CollectionViewModel.prototype.getFilteredSortedCollection = function () {
 	        var collection = this._collection;
 	        var filteredSortedCollection = null;
 	        var filter = this.filters && this.filter ? this.filters[this.filter] : null;
@@ -56743,7 +56916,7 @@ var app =
 	    /**
 	     * 获取排序过滤集合中的序数对应于原始集合中的序数。
 	     */
-	    CollectionViewModal.prototype.getRawIndexOf = function (index) {
+	    CollectionViewModel.prototype.getRawIndexOf = function (index) {
 	        if ((this.comparators && this.comparator) || (this.filters && this.filter)) {
 	            var obj = this._filteredSortedCollection[index];
 	            return this.collection.indexOf(obj);
@@ -56753,31 +56926,31 @@ var app =
 	        }
 	    };
 	    /*
-	     * 创建一个子ViewModal。
+	     * 创建一个子ViewModel。
 	     */
-	    CollectionViewModal.prototype.createItemViewModal = function (index, data) {
-	        return ItemViewModal.create(this, index, data);
+	    CollectionViewModel.prototype.createItemViewModel = function (index, data) {
+	        return ItemViewModel.create(this, index, data);
 	    };
 	    /*
-	     * 重新创建ViewModalItems。
+	     * 重新创建ViewModelItems。
 	     */
-	    CollectionViewModal.prototype.updateViewModalItems = function (force) {
+	    CollectionViewModel.prototype.updateViewModelItems = function (force) {
 	        var _this = this;
-	        if (force || this.needUpdateViewModalItems) {
-	            this.needUpdateViewModalItems = false;
+	        if (force || this.needUpdateViewModelItems) {
+	            this.needUpdateViewModelItems = false;
 	            console.time("filter and sort");
 	            var collection = this.getFilteredSortedCollection();
 	            var n = collection.length;
 	            if (this.current >= n) {
 	                this._current = n - 1;
 	            }
-	            if (this._viewModalItems) {
-	                this._viewModalItems.forEach(function (item) {
+	            if (this._viewModelItems) {
+	                this._viewModelItems.forEach(function (item) {
 	                    item.dispose();
 	                });
 	            }
-	            this._viewModalItems = collection.map(function (data, i) {
-	                return _this.createItemViewModal(i, data);
+	            this._viewModelItems = collection.map(function (data, i) {
+	                return _this.createItemViewModel(i, data);
 	            });
 	            console.timeEnd("filter and sort");
 	            console.time("notify ITEMS_CHANGE");
@@ -56789,18 +56962,18 @@ var app =
 	    /**
 	     * 注册过滤器。
 	     */
-	    CollectionViewModal.prototype.registerFilter = function (name, filter) {
+	    CollectionViewModel.prototype.registerFilter = function (name, filter) {
 	        this.filters[name] = filter;
 	        return this;
 	    };
 	    /**
 	     * 注销过滤器。
 	     */
-	    CollectionViewModal.prototype.unregisterFilter = function (name) {
+	    CollectionViewModel.prototype.unregisterFilter = function (name) {
 	        delete this.filters[name];
 	        return this;
 	    };
-	    Object.defineProperty(CollectionViewModal.prototype, "filter", {
+	    Object.defineProperty(CollectionViewModel.prototype, "filter", {
 	        get: function () {
 	            return this._filter;
 	        },
@@ -56809,8 +56982,8 @@ var app =
 	         */
 	        set: function (name) {
 	            this._filter = name;
-	            this.needUpdateViewModalItems = true;
-	            this.updateViewModalItems();
+	            this.needUpdateViewModelItems = true;
+	            this.updateViewModelItems();
 	        },
 	        enumerable: true,
 	        configurable: true
@@ -56818,18 +56991,18 @@ var app =
 	    /**
 	     * 注册排序用的比较器。
 	     */
-	    CollectionViewModal.prototype.registerComparator = function (name, comparator) {
+	    CollectionViewModel.prototype.registerComparator = function (name, comparator) {
 	        this.comparators[name] = comparator;
 	        return this;
 	    };
 	    /**
 	     * 注销排序用的比较器。
 	     */
-	    CollectionViewModal.prototype.unregisterComparator = function (name) {
+	    CollectionViewModel.prototype.unregisterComparator = function (name) {
 	        delete this.comparators[name];
 	        return this;
 	    };
-	    Object.defineProperty(CollectionViewModal.prototype, "comparator", {
+	    Object.defineProperty(CollectionViewModel.prototype, "comparator", {
 	        get: function () {
 	            return this._comparator;
 	        },
@@ -56838,47 +57011,47 @@ var app =
 	         */
 	        set: function (name) {
 	            this._comparator = name;
-	            this.needUpdateViewModalItems = true;
-	            this.updateViewModalItems();
+	            this.needUpdateViewModelItems = true;
+	            this.updateViewModelItems();
 	        },
 	        enumerable: true,
 	        configurable: true
 	    });
-	    CollectionViewModal.create = function (data) {
-	        var viewModal = new CollectionViewModal(data);
-	        return viewModal;
+	    CollectionViewModel.create = function (data) {
+	        var viewModel = new CollectionViewModel(data);
+	        return viewModel;
 	    };
-	    return CollectionViewModal;
-	}(view_modal_default_1.ViewModalDefault));
-	exports.CollectionViewModal = CollectionViewModal;
+	    return CollectionViewModel;
+	}(view_model_default_1.ViewModelDefault));
+	exports.CollectionViewModel = CollectionViewModel;
 	;
 	/**
-	 * 表示集合ViewModal中的单项ViewModal。
+	 * 表示集合ViewModel中的单项ViewModel。
 	 *
 	 */
-	var ItemViewModal = (function (_super) {
-	    __extends(ItemViewModal, _super);
-	    function ItemViewModal() {
+	var ItemViewModel = (function (_super) {
+	    __extends(ItemViewModel, _super);
+	    function ItemViewModel() {
 	        _super.call(this, null);
 	        this.isCollection = false;
 	        this.initCommands();
 	    }
-	    ItemViewModal.prototype.getCommand = function (name) {
+	    ItemViewModel.prototype.getCommand = function (name) {
 	        var cmd = _super.prototype.getCommand.call(this, name);
 	        if (!cmd) {
-	            cmd = this.collectionViewModal.getCommand(name);
+	            cmd = this.collectionViewModel.getCommand(name);
 	        }
 	        return cmd;
 	    };
-	    ItemViewModal.prototype.canExecute = function (name) {
+	    ItemViewModel.prototype.canExecute = function (name) {
 	        if (_super.prototype.canExecute.call(this, name)) {
 	            return true;
 	        }
 	        else {
-	            return this.collectionViewModal.canExecute(name);
+	            return this.collectionViewModel.canExecute(name);
 	        }
 	    };
-	    ItemViewModal.prototype.execCommand = function (name, args) {
+	    ItemViewModel.prototype.execCommand = function (name, args) {
 	        var cmd = _super.prototype.getCommand.call(this, name);
 	        if (cmd) {
 	            return _super.prototype.execCommand.call(this, name, args);
@@ -56890,72 +57063,76 @@ var app =
 	            else {
 	                args = { $index: this.index };
 	            }
-	            return this.collectionViewModal.execCommand(name, args);
+	            return this.collectionViewModel.execCommand(name, args);
 	        }
 	    };
-	    ItemViewModal.prototype.convert = function (converterName, value) {
-	        return this.collectionViewModal.convert(converterName, value);
+	    ItemViewModel.prototype.convert = function (converterName, value) {
+	        return this.collectionViewModel.convert(converterName, value);
 	    };
-	    ItemViewModal.prototype.convertBack = function (converterName, value) {
-	        return this.collectionViewModal.convertBack(converterName, value);
+	    ItemViewModel.prototype.convertBack = function (converterName, value) {
+	        return this.collectionViewModel.convertBack(converterName, value);
 	    };
-	    ItemViewModal.prototype.isValueValid = function (ruleName, value) {
-	        return this.collectionViewModal.isValueValid(ruleName, value);
+	    ItemViewModel.prototype.isValueValid = function (ruleName, value) {
+	        return this.collectionViewModel.isValueValid(ruleName, value);
 	    };
-	    ItemViewModal.prototype.getValueConverter = function (name) {
-	        return this.collectionViewModal.getValueConverter(name);
+	    ItemViewModel.prototype.getValueConverter = function (name) {
+	        return this.collectionViewModel.getValueConverter(name);
 	    };
-	    ItemViewModal.prototype.getValidationRule = function (name) {
-	        return this.collectionViewModal.getValidationRule(name);
+	    ItemViewModel.prototype.getValidationRule = function (name) {
+	        return this.collectionViewModel.getValidationRule(name);
 	    };
-	    ItemViewModal.prototype.isCurrent = function () {
-	        return this.collectionViewModal.current === this.index;
+	    ItemViewModel.prototype.isCurrent = function () {
+	        return this.collectionViewModel.current === this.index;
 	    };
-	    ItemViewModal.prototype.notifyChange = function (type, path, value) {
-	        var collectionViewModal = this.collectionViewModal;
-	        if (collectionViewModal.comparator || collectionViewModal.filter) {
-	            collectionViewModal.updateViewModalItems(true);
+	    ItemViewModel.prototype.notifyChange = function (type, path, value) {
+	        var collectionViewModel = this.collectionViewModel;
+	        if (collectionViewModel.bindingMode === iview_model_1.BindingMode.ONE_WAY) {
+	            return;
+	        }
+	        if (collectionViewModel.comparator || collectionViewModel.filter) {
+	            collectionViewModel.updateViewModelItems(true);
 	        }
 	        else {
 	            if (this.isCurrent) {
-	                collectionViewModal.notifyChange(type, path, value);
+	                collectionViewModel.notifyChange(type, path, value);
 	            }
 	            _super.prototype.notifyChange.call(this, type, path, value);
 	        }
 	    };
-	    ItemViewModal.prototype.initCommands = function () {
+	    ItemViewModel.prototype.initCommands = function () {
 	        var _this = this;
 	        this.registerCommand("activate", delegate_command_1.DelegateCommand.create(function (args) {
-	            _this.collectionViewModal.current = _this.index;
+	            _this.collectionViewModel.current = _this.index;
 	        }));
 	        this.registerCommand("remove", delegate_command_1.DelegateCommand.create(function (args) {
-	            _this.collectionViewModal.removeItem(_this.collectionViewModal.getRawIndexOf(_this.index));
+	            _this.collectionViewModel.removeItem(_this.collectionViewModel.getRawIndexOf(_this.index));
 	        }));
 	    };
-	    ItemViewModal.prototype.init = function (collectionViewModal, index, data) {
-	        this.collectionViewModal = collectionViewModal;
+	    ItemViewModel.prototype.init = function (collectionViewModel, index, data) {
+	        this.collectionViewModel = collectionViewModel;
 	        this.index = index;
 	        this.setData(data, false);
+	        this.bindingMode = collectionViewModel.bindingMode;
 	        return this;
 	    };
-	    ItemViewModal.prototype.dispose = function () {
+	    ItemViewModel.prototype.dispose = function () {
 	        this.index = -1;
 	        this.removeAllListeners();
-	        this.collectionViewModal = null;
-	        ItemViewModal.cache.push(this);
+	        this.collectionViewModel = null;
+	        ItemViewModel.cache.push(this);
 	    };
-	    ItemViewModal.create = function (collectionViewModal, index, data) {
-	        var vm = ItemViewModal.cache.length > 0 ? ItemViewModal.cache.pop() : (new ItemViewModal());
-	        return vm.init(collectionViewModal, index, data);
+	    ItemViewModel.create = function (collectionViewModel, index, data) {
+	        var vm = ItemViewModel.cache.length > 0 ? ItemViewModel.cache.pop() : (new ItemViewModel());
+	        return vm.init(collectionViewModel, index, data);
 	    };
-	    ItemViewModal.cache = [];
-	    return ItemViewModal;
-	}(view_modal_default_1.ViewModalDefault));
-	exports.ItemViewModal = ItemViewModal;
+	    ItemViewModel.cache = [];
+	    return ItemViewModel;
+	}(view_model_default_1.ViewModelDefault));
+	exports.ItemViewModel = ItemViewModel;
 
 
 /***/ },
-/* 331 */
+/* 332 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -56980,7 +57157,7 @@ var app =
 
 
 /***/ },
-/* 332 */
+/* 333 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -57001,7 +57178,7 @@ var app =
 
 
 /***/ },
-/* 333 */
+/* 334 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -57021,7 +57198,7 @@ var app =
 
 
 /***/ },
-/* 334 */
+/* 335 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -57046,7 +57223,7 @@ var app =
 
 
 /***/ },
-/* 335 */
+/* 336 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -57067,7 +57244,7 @@ var app =
 
 
 /***/ },
-/* 336 */
+/* 337 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -57107,7 +57284,7 @@ var app =
 
 
 /***/ },
-/* 337 */
+/* 338 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -57127,7 +57304,7 @@ var app =
 
 
 /***/ },
-/* 338 */
+/* 339 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -57147,7 +57324,7 @@ var app =
 
 
 /***/ },
-/* 339 */
+/* 340 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -57166,7 +57343,7 @@ var app =
 
 
 /***/ },
-/* 340 */
+/* 341 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -57212,7 +57389,7 @@ var app =
 
 
 /***/ },
-/* 341 */
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57262,7 +57439,7 @@ var app =
 
 
 /***/ },
-/* 342 */
+/* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57273,7 +57450,7 @@ var app =
 	};
 	var rect_1 = __webpack_require__(3);
 	var point_1 = __webpack_require__(4);
-	var range_1 = __webpack_require__(343);
+	var range_1 = __webpack_require__(344);
 	var list_view_1 = __webpack_require__(114);
 	var widget_1 = __webpack_require__(21);
 	var widget_factory_1 = __webpack_require__(25);
@@ -57526,7 +57703,7 @@ var app =
 
 
 /***/ },
-/* 343 */
+/* 344 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -57553,7 +57730,7 @@ var app =
 
 
 /***/ },
-/* 344 */
+/* 345 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57563,7 +57740,7 @@ var app =
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var widget_factory_1 = __webpack_require__(25);
-	var passive_scrollable_group_1 = __webpack_require__(345);
+	var passive_scrollable_group_1 = __webpack_require__(346);
 	var widget_recyclable_creator_1 = __webpack_require__(84);
 	/**
 	 * 表格左边的行序数。
@@ -57586,7 +57763,7 @@ var app =
 
 
 /***/ },
-/* 345 */
+/* 346 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57723,7 +57900,7 @@ var app =
 
 
 /***/ },
-/* 346 */
+/* 347 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57733,7 +57910,7 @@ var app =
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var widget_factory_1 = __webpack_require__(25);
-	var passive_scrollable_group_1 = __webpack_require__(345);
+	var passive_scrollable_group_1 = __webpack_require__(346);
 	var widget_recyclable_creator_1 = __webpack_require__(84);
 	/**
 	 * 表格头
@@ -57756,7 +57933,7 @@ var app =
 
 
 /***/ },
-/* 347 */
+/* 348 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -57769,12 +57946,12 @@ var app =
 	var widget_1 = __webpack_require__(21);
 	var widget_factory_1 = __webpack_require__(25);
 	var widget_recyclable_creator_1 = __webpack_require__(84);
-	var table_row_1 = __webpack_require__(341);
-	var table_index_1 = __webpack_require__(344);
-	var table_client_1 = __webpack_require__(342);
-	var table_header_1 = __webpack_require__(346);
-	var table_index_item_1 = __webpack_require__(348);
-	var table_header_item_1 = __webpack_require__(349);
+	var table_row_1 = __webpack_require__(342);
+	var table_index_1 = __webpack_require__(345);
+	var table_client_1 = __webpack_require__(343);
+	var table_header_1 = __webpack_require__(347);
+	var table_index_item_1 = __webpack_require__(349);
+	var table_header_item_1 = __webpack_require__(350);
 	/**
 	 * 描述表格中某列的信息。
 	 */
@@ -57918,13 +58095,13 @@ var app =
 	        }
 	        return this._templateRow;
 	    };
-	    Table.prototype.bindData = function (viewModal) {
+	    Table.prototype.bindData = function (viewModel) {
 	        this.prepareUI();
 	        var client = this._client;
 	        if (client) {
 	            client.templateItem = this.getTemplateRow();
 	            client.removeAllChildren();
-	            client.bindData(viewModal);
+	            client.bindData(viewModel);
 	        }
 	        var itemH = this.rowH;
 	        var indexBar = this._indexBar;
@@ -58064,7 +58241,7 @@ var app =
 
 
 /***/ },
-/* 348 */
+/* 349 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -58097,7 +58274,7 @@ var app =
 
 
 /***/ },
-/* 349 */
+/* 350 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -58200,7 +58377,7 @@ var app =
 
 
 /***/ },
-/* 350 */
+/* 351 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -58221,7 +58398,7 @@ var app =
 
 
 /***/ },
-/* 351 */
+/* 352 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -58242,7 +58419,7 @@ var app =
 
 
 /***/ },
-/* 352 */
+/* 353 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -58329,7 +58506,7 @@ var app =
 
 
 /***/ },
-/* 353 */
+/* 354 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -58368,7 +58545,7 @@ var app =
 
 
 /***/ },
-/* 354 */
+/* 355 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -58392,7 +58569,7 @@ var app =
 
 
 /***/ },
-/* 355 */
+/* 356 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -58421,7 +58598,7 @@ var app =
 
 
 /***/ },
-/* 356 */
+/* 357 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -58453,7 +58630,7 @@ var app =
 
 
 /***/ },
-/* 357 */
+/* 358 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -58462,7 +58639,7 @@ var app =
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var todo_list_item_1 = __webpack_require__(358);
+	var todo_list_item_1 = __webpack_require__(359);
 	var qtk_1 = __webpack_require__(2);
 	var qtk_2 = __webpack_require__(2);
 	var MainWindow = (function (_super) {
@@ -58513,7 +58690,7 @@ var app =
 	        });
 	        this.bottomGroup.addChild(clearCompletedButton);
 	        this.relayoutChildren();
-	        this.bindData(this.viewModal);
+	        this.bindData(this.viewModel);
 	    };
 	    MainWindow.prototype.relayoutChildren = function () {
 	        var y = 10;
@@ -58547,7 +58724,7 @@ var app =
 	//# sourceMappingURL=main-window.js.map
 
 /***/ },
-/* 358 */
+/* 359 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -58612,25 +58789,25 @@ var app =
 	//# sourceMappingURL=todo-list-item.js.map
 
 /***/ },
-/* 359 */
+/* 360 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var itodo_modal_1 = __webpack_require__(360);
-	var TodoModal = (function () {
-	    function TodoModal() {
+	var itodo_model_1 = __webpack_require__(361);
+	var TodoModel = (function () {
+	    function TodoModel() {
 	    }
-	    TodoModal.prototype.save = function () {
+	    TodoModel.prototype.save = function () {
 	        var str = JSON.stringify(this.data);
 	        localStorage.setItem("qtk-todos", str);
 	        return this;
 	    };
-	    TodoModal.prototype.load = function () {
+	    TodoModel.prototype.load = function () {
 	        var str = localStorage.getItem("qtk-todos");
 	        if (str) {
 	            var items = JSON.parse(str);
 	            this.data = items.map(function (item) {
-	                return itodo_modal_1.TodoItem.create(item.content, item.completed);
+	                return itodo_model_1.TodoItem.create(item.content, item.completed);
 	            });
 	        }
 	        else {
@@ -58638,14 +58815,14 @@ var app =
 	        }
 	        return this;
 	    };
-	    return TodoModal;
+	    return TodoModel;
 	}());
-	exports.TodoModal = TodoModal;
+	exports.TodoModel = TodoModel;
 	;
-	//# sourceMappingURL=todo-modal.js.map
+	//# sourceMappingURL=todo-model.js.map
 
 /***/ },
-/* 360 */
+/* 361 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -58662,10 +58839,10 @@ var app =
 	exports.TodoItem = TodoItem;
 	;
 	;
-	//# sourceMappingURL=itodo-modal.js.map
+	//# sourceMappingURL=itodo-model.js.map
 
 /***/ },
-/* 361 */
+/* 362 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -58676,16 +58853,16 @@ var app =
 	};
 	var qtk_1 = __webpack_require__(2);
 	var qtk_2 = __webpack_require__(2);
-	var itodo_modal_1 = __webpack_require__(360);
-	var TodoViewModal = (function (_super) {
-	    __extends(TodoViewModal, _super);
-	    function TodoViewModal(data) {
+	var itodo_model_1 = __webpack_require__(361);
+	var TodoViewModel = (function (_super) {
+	    __extends(TodoViewModel, _super);
+	    function TodoViewModel(data) {
 	        _super.call(this, data);
 	        this.initFilters();
 	        this.initCommands();
 	        this.initConverters();
 	    }
-	    TodoViewModal.prototype.getProp = function (path, converterName) {
+	    TodoViewModel.prototype.getProp = function (path, converterName) {
 	        if (path.indexOf("$total") >= 0) {
 	            return this.convert(converterName, this.total);
 	        }
@@ -58694,46 +58871,46 @@ var app =
 	        }
 	        return _super.prototype.getProp.call(this, path, converterName);
 	    };
-	    TodoViewModal.prototype.setProp = function (path, value, converterName, validationRule) {
+	    TodoViewModel.prototype.setProp = function (path, value, converterName, validationRule) {
 	        if (path.indexOf("$new-content") >= 0) {
 	            this._newContent = value;
 	            return qtk_1.ValidationResult.validResult;
 	        }
 	        return _super.prototype.setProp.call(this, path, value, converterName, validationRule);
 	    };
-	    TodoViewModal.prototype.initFilters = function () {
+	    TodoViewModel.prototype.initFilters = function () {
 	        this.registerFilter("active", qtk_1.DelegateFilter.create(function (item) { return !item.completed; }));
 	        this.registerFilter("completed", qtk_1.DelegateFilter.create(function (item) { return item.completed; }));
 	    };
-	    TodoViewModal.prototype.clearCompleted = function () {
+	    TodoViewModel.prototype.clearCompleted = function () {
 	        this.removeItems(function (item) { return item.completed; });
 	    };
-	    TodoViewModal.prototype.canClearCompleted = function () {
+	    TodoViewModel.prototype.canClearCompleted = function () {
 	        return this.collection.some(function (item) { return item.completed; });
 	    };
-	    TodoViewModal.prototype.createNew = function () {
+	    TodoViewModel.prototype.createNew = function () {
 	        var content = this._newContent;
 	        var hasItems = this.hasItems(function (item) { return item.content === content; });
 	        if (content && !hasItems) {
-	            this.addItem(itodo_modal_1.TodoItem.create(content, false));
+	            this.addItem(itodo_model_1.TodoItem.create(content, false));
 	        }
 	    };
-	    TodoViewModal.prototype.initCommands = function () {
+	    TodoViewModel.prototype.initCommands = function () {
 	        var _this = this;
 	        this.registerCommand("filter", qtk_2.DelegateCommand.create(function (args) { return _this.filter = args.filter; }, null));
 	        this.registerCommand("clearCompleted", qtk_2.DelegateCommand.create(function (args) { return _this.clearCompleted(); }, function () { return _this.canClearCompleted(); }));
 	        this.registerCommand("new", qtk_2.DelegateCommand.create(function (args) { return _this.createNew(); }, function () { return !!_this._newContent; }));
 	    };
-	    TodoViewModal.prototype.initConverters = function () {
+	    TodoViewModel.prototype.initConverters = function () {
 	        this.registerValueConverter("itemLeft", qtk_1.DelegateValueConverter.create(function (value) { return value + " items left"; }, null));
 	    };
-	    TodoViewModal.create = function (data) {
-	        return new TodoViewModal(data);
+	    TodoViewModel.create = function (data) {
+	        return new TodoViewModel(data);
 	    };
-	    return TodoViewModal;
-	}(qtk_2.CollectionViewModal));
-	exports.TodoViewModal = TodoViewModal;
-	//# sourceMappingURL=todo-view-modal.js.map
+	    return TodoViewModel;
+	}(qtk_2.CollectionViewModel));
+	exports.TodoViewModel = TodoViewModel;
+	//# sourceMappingURL=todo-view-model.js.map
 
 /***/ }
 /******/ ]);

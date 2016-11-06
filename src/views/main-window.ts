@@ -1,14 +1,14 @@
 import {TodoListItem} from "./todo-list-item";
 import {SimpleLayouter, SimpleLayouterParam} from "qtk"
 import {WindowNormal, LinearLayouter, LinearLayouterParam} from "qtk"
-import {CollectionViewModal, ListView, Edit, Group, RadioButton, Button, Rect, Label} from "qtk";
+import {CollectionViewModel, ListView, Edit, Group, RadioButton, Button, Rect, Label} from "qtk";
 
 export class MainWindow extends WindowNormal {
 	protected edit : Edit;
 	protected title: Label;
 	protected listView : ListView;
 	protected bottomGroup : Group;
-	protected viewModal : CollectionViewModal;
+	protected viewModel : CollectionViewModel;
 
 	protected onInit() {
 		super.onInit();
@@ -63,7 +63,7 @@ export class MainWindow extends WindowNormal {
 		this.bottomGroup.addChild(clearCompletedButton);
 		this.relayoutChildren();
 
-		this.bindData(this.viewModal);
+		this.bindData(this.viewModel);
 	}
 
 	public relayoutChildren() : Rect {

@@ -55,7 +55,7 @@ var MainWindow = (function (_super) {
         });
         this.bottomGroup.addChild(clearCompletedButton);
         this.relayoutChildren();
-        this.bindData(this.viewModal);
+        this.bindData(this.viewModel);
     };
     MainWindow.prototype.relayoutChildren = function () {
         var y = 10;

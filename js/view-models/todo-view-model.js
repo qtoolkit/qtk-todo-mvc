@@ -6,16 +6,16 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var qtk_1 = require("qtk");
 var qtk_2 = require("qtk");
-var itodo_modal_1 = require("../modals/itodo-modal");
-var TodoViewModal = (function (_super) {
-    __extends(TodoViewModal, _super);
-    function TodoViewModal(data) {
+var itodo_model_1 = require("../models/itodo-model");
+var TodoViewModel = (function (_super) {
+    __extends(TodoViewModel, _super);
+    function TodoViewModel(data) {
         _super.call(this, data);
         this.initFilters();
         this.initCommands();
         this.initConverters();
     }
-    TodoViewModal.prototype.getProp = function (path, converterName) {
+    TodoViewModel.prototype.getProp = function (path, converterName) {
         if (path.indexOf("$total") >= 0) {
             return this.convert(converterName, this.total);
         }
@@ -24,43 +24,43 @@ var TodoViewModal = (function (_super) {
         }
         return _super.prototype.getProp.call(this, path, converterName);
     };
-    TodoViewModal.prototype.setProp = function (path, value, converterName, validationRule) {
+    TodoViewModel.prototype.setProp = function (path, value, converterName, validationRule) {
         if (path.indexOf("$new-content") >= 0) {
             this._newContent = value;
             return qtk_1.ValidationResult.validResult;
         }
         return _super.prototype.setProp.call(this, path, value, converterName, validationRule);
     };
-    TodoViewModal.prototype.initFilters = function () {
+    TodoViewModel.prototype.initFilters = function () {
         this.registerFilter("active", qtk_1.DelegateFilter.create(function (item) { return !item.completed; }));
         this.registerFilter("completed", qtk_1.DelegateFilter.create(function (item) { return item.completed; }));
     };
-    TodoViewModal.prototype.clearCompleted = function () {
+    TodoViewModel.prototype.clearCompleted = function () {
         this.removeItems(function (item) { return item.completed; });
     };
-    TodoViewModal.prototype.canClearCompleted = function () {
+    TodoViewModel.prototype.canClearCompleted = function () {
         return this.collection.some(function (item) { return item.completed; });
     };
-    TodoViewModal.prototype.createNew = function () {
+    TodoViewModel.prototype.createNew = function () {
         var content = this._newContent;
         var hasItems = this.hasItems(function (item) { return item.content === content; });
         if (content && !hasItems) {
-            this.addItem(itodo_modal_1.TodoItem.create(content, false));
+            this.addItem(itodo_model_1.TodoItem.create(content, false));
         }
     };
-    TodoViewModal.prototype.initCommands = function () {
+    TodoViewModel.prototype.initCommands = function () {
         var _this = this;
         this.registerCommand("filter", qtk_2.DelegateCommand.create(function (args) { return _this.filter = args.filter; }, null));
         this.registerCommand("clearCompleted", qtk_2.DelegateCommand.create(function (args) { return _this.clearCompleted(); }, function () { return _this.canClearCompleted(); }));
         this.registerCommand("new", qtk_2.DelegateCommand.create(function (args) { return _this.createNew(); }, function () { return !!_this._newContent; }));
     };
-    TodoViewModal.prototype.initConverters = function () {
+    TodoViewModel.prototype.initConverters = function () {
         this.registerValueConverter("itemLeft", qtk_1.DelegateValueConverter.create(function (value) { return value + " items left"; }, null));
     };
-    TodoViewModal.create = function (data) {
-        return new TodoViewModal(data);
+    TodoViewModel.create = function (data) {
+        return new TodoViewModel(data);
     };
-    return TodoViewModal;
-}(qtk_2.CollectionViewModal));
-exports.TodoViewModal = TodoViewModal;
-//# sourceMappingURL=todo-view-modal.js.map
+    return TodoViewModel;
+}(qtk_2.CollectionViewModel));
+exports.TodoViewModel = TodoViewModel;
+//# sourceMappingURL=todo-view-model.js.map

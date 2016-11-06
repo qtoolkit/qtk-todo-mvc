@@ -12,4 +12,4 @@ var TodoItem = (function () {
 exports.TodoItem = TodoItem;
 ;
 ;
-//# sourceMappingURL=itodo-storage.js.map
+//# sourceMappingURL=itodo-model.js.map

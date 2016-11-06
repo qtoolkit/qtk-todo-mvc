@@ -4,8 +4,8 @@ export declare class TodoItem {
     constructor(content: string, completed: boolean);
     static create(content: string, completed: boolean): TodoItem;
 }
-export interface ITodoModal {
+export interface ITodoModel {
     data: Array<TodoItem>;
-    save(): ITodoModal;
-    load(): ITodoModal;
+    save(): ITodoModel;
+    load(): ITodoModel;
 }

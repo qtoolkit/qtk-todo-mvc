@@ -1,6 +1,6 @@
 import { ValidationResult } from "qtk";
-import { CollectionViewModal } from "qtk";
-export declare class TodoViewModal extends CollectionViewModal {
+import { CollectionViewModel } from "qtk";
+export declare class TodoViewModel extends CollectionViewModel {
     protected _newContent: string;
     constructor(data: Array<any>);
     getProp(path: string, converterName?: string): any;
@@ -11,5 +11,5 @@ export declare class TodoViewModal extends CollectionViewModal {
     protected createNew(): void;
     protected initCommands(): void;
     protected initConverters(): void;
-    static create(data: Array<any>): TodoViewModal;
+    static create(data: Array<any>): TodoViewModel;
 }
